@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="chapters-15-and-19-using-conditionals">Chapters 15 and 19: Using Conditionals</h1>
+<p>Read <em>Code Complete</em> Chapter 15, plus sections 19.1 and 19.2.</p>
+<h2 id="if-statements">15.1 <em>if</em> Statements</h2>
+<p>Lots of valuable suggestions here. In your programming work, you are expected to follow these guidelines to the greatest extent prudent.</p>
+<h2 id="case-statements">15.2. <em>case</em> Statements</h2>
+<p>These are also known as <code>switch</code> statements in some PLs.</p>
+<p>A fair number of programmers seem to really like these. I think they feel that these save effort vs. equivalent <code>if</code>/<code>else</code> constructions. Maybe this laziness is why they also tend to use these badly, violating many of the guidelines here.</p>
+<p>If you use these, use them well. Consider not using them at all, since they add nothing to the power of <code>if</code>/<code>else</code>. (This reminds me of the philosophical debate between <a href="http://c2.com/cgi/wiki?ThereIsMoreThanOneWayToDoIt">Perl</a> and <a href="http://c2.com/cgi/wiki?PythonPhilosophy">Python</a> (see item number 11 under this link).)</p>
+<h2 id="boolean-expressions">19.1 Boolean Expressions</h2>
+<p>There is lots of good advice in this section. In your programming work, you are expected to follow these guidelines to the greatest extent prudent.</p>
+<h3 id="gmls-handling-of-boolean-expressions">GML’s handling of Boolean expressions</h3>
+<p>This is an area where GML differs from most other C-like languages. GML was designed to be more forgiving to beginners, which can be an advantage. However, it allows you to form some habits that you will need to break in order to work with similar PLs. Consider the following code.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>
+
+<span class="cf">if</span> (x <span class="op">=</span> <span class="dv">6</span>)
+<span class="op">{</span>
+    result <span class="op">=</span> <span class="st">&quot;x is equal to 6&quot;</span><span class="op">;</span>
+<span class="op">}</span>
+<span class="cf">else</span>
+<span class="op">{</span>
+    result <span class="op">=</span> <span class="st">&quot;x is not equal to 6&quot;</span><span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>This code is valid (or very nearly valid) in GML, JavaScript, Java, C++, C and other similar languages. But it will behave differently in GML than in most of the other PLs.</p>
+<p>In GML, the <code>if</code> statement’s Boolean expression compares the values of <code>x</code> and <code>6</code> to see if they are equal; they are not, so the <code>else</code> block is executed and the result indicates that <code>x</code> is not equal to <code>6</code>.</p>
+<p>In most similar PLs, however, the Boolean expression is interpreted differently because the single equals sign is always an assignment operation. You must use the double equals sign to compare for equality. In C, the expression in parentheses changes the value of <code>x</code> by assigning <code>6</code>. The value of that expression is then <code>6</code>. Since C considers any non-zero value to be true, the <code>if</code> block is executed and the result indicates that <code>x</code> is equal to <code>6</code>. Most similar PLs will behave in similar ways, though they are more likely to give a compiler error or warning about the assignment appearing where a Boolean value is expected.</p>
+<p>Bottom line: GML allows you to use either <code>=</code> or <code>==</code> for equality comparison, but in most similar PLs these mean different things, and you must say what you mean.</p>
+<p>This is as good a place as any to describe JavaScript’s set of comparison operators, which allow the programmer to opt for type coercion or type checking. In JavaScript, the expression <code>5 == '5'</code> will evaluate to <code>true</code>, but <code>5 === '5'</code> will evaluate to <code>false</code>. The double equals operator (and its inverse, <code>!=</code>) perform type coercion before comparing, but the triple equals operator (and its inverse, <code>!==</code>) do not.</p>
+<p>Another minor difference between GML and similar PLs is that the parentheses around the Boolean expression for GML’s <code>if</code> are optional; you could remove them without any problem. Most similar PLs require that an <code>if</code> statement use parentheses around the Boolean expression.</p>
+<h3 id="short-circuit-evaluation">Short-circuit evaluation</h3>
+<p>No matter which PL you are using, it is critical that you understand whether and when your PL short circuits the evaluation of Boolean expressions. Consider this code.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="cf">if</span> (points_possible <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> points_earned / points_possible <span class="op">&gt;=</span> <span class="fl">0.60</span>)
+<span class="op">{</span>
+   result <span class="op">=</span> <span class="st">&quot;You pass.&quot;</span><span class="op">;</span>
+<span class="op">}</span>
+<span class="cf">else</span>
+<span class="op">{</span>
+   result <span class="op">=</span> <span class="st">&quot;You fail.&quot;</span><span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>Now imagine that points_possible has a value of zero. What happens?</p>
+<p>Some PLs will produce an error message (possibly at compile time, possibly at run time) because the code attempts to divide by zero, which is an undefined mathematical operation. This behavior proves that these PLs do not “short circuit” when evaluating the Boolean expression.</p>
+<p>Other PLs will run without error, and the result will indicate that the student failed. This behavior proves that these PLs “short circuit” when evaluating the Boolean expression.</p>
+<p>To be clear, short circuiting has nothing to do with division by zero. This is just one scenario where a programmer might take advantage of short circuiting behavior.</p>
+<p>Short circuiting has to do with how Boolean expressions are evaluated. To understand this, think about the Boolean <code>AND</code> operation (written as <code>&amp;&amp;</code> in many PLs). This operation combines two Boolean values into a single Boolean result. The Boolean values being combined might be literal values <code>true</code> and <code>false</code>, but usually they are themselves Boolean expressions (which we can label with letters). So the <code>if</code> keyword is followed by a Boolean expression, which might be in the form <code>A &amp;&amp; B</code>, where <code>A</code> and <code>B</code> are Boolean expressions.</p>
+<p>A PL that does <em>not</em> <strong>short circuit</strong> will fully evaluate both Boolean expressions <code>A</code> and <code>B</code>, then combine the two values according to this familiar truth table.</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>A AND B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>A PL that does short circuit uses the shortcut indicated by the following truth table. It fully evaluates <code>A</code>. In a case where <code>A</code> is false, the PL does not bother to evaluate <code>B</code>. It doesn’t need to; no matter what <code>B</code>’s value is, the overall expression <code>A AND B</code> must be false. This is the short circuit. The PL will only bother to evaluate <code>B</code> in a case where <code>A</code> has evaluated to true.</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>A AND B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>False</td>
+<td>doesn’t matter, don’t bother</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td>True</td>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>Look back to the code example above. A PL that does not short circuit will evaluate the expression <code>points_possible &gt; 0</code>, which is false in our scenario. It will then evaluate the expression <code>points_earned / points_possible &gt; 0</code>, which produces an error for division by zero.</p>
+<p>In contrast, a PL that short circuits will evaluate the expression <code>points_possible &gt; 0</code>, which is false in our scenario. It will not evaluate the second expression; it doesn’t need to because the overall result must be false. As a result, no division by zero is attempted, and the <code>else</code> block is executed.</p>
+<p>A few PLs have multiple versions of <code>AND</code> and <code>OR</code> operators, with some that short circuit and some that do not. GameMaker Studio allows you to choose which behavior you want with a global game setting.</p>
+</body>
+</html>

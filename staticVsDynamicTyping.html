@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="static-vs.dynamic-typing">Static vs. Dynamic Typing</h1>
+<p>Here are some details on another distinction that has been introduced earlier.</p>
+<h2 id="dynamic-typing">Dynamic Typing</h2>
+<p>Some PLs have <strong>dynamic typing</strong>, which means:</p>
+<ul>
+<li>a variable is not associated with a particular data type</li>
+<li>each <em>value</em> has a data type</li>
+<li>the same variable can hold values of different types at different times</li>
+<li>type checking can be performed at run time as statements are executed</li>
+</ul>
+<p>For example, consider the following Perl statements:</p>
+<pre><code>$x = 5;
+$x = &quot;hello&quot;;</code></pre>
+<p>The variable <code>$x</code> is given values of different types at different times, and this is valid in Perl. For programs of realistic complexity, the value and type stored by a variable could be dependent on user input, random number generation, etc. Clearly it would be impossible to check the types used in a statement until the statement was about to execute in a particular run time state.</p>
+<h2 id="static-typing">Static Typing</h2>
+<p>Other PLs have <strong>static typing</strong>, which means:</p>
+<ul>
+<li>each <em>variable</em> is associated with a data type</li>
+<li>the data type of a variable cannot change</li>
+<li>type checking can be performed at compile time (or before run time by a static type checker)</li>
+</ul>
+<p>For example, consider the following statement:</p>
+<pre><code>int i = 1.1;</code></pre>
+<p>The source code specifies that the variable <code>i</code> has type <code>int</code>. The compiler or other type checking software can check for proper type usage before run time, so it would be possible for a compiler to indicate that there is something suspicious about this assignment. There is no way to change the variable’s type at run time.</p>
+<h2 id="terminology">Terminology</h2>
+<p>You should be aware that different authors and experts define the terms used here in different ways.</p>
+<p>For example, some say that the issue of dynamic vs. static typing applies only to strongly typed PLs, and is meaningless for weakly typed PLs. I disagree, for two reasons.</p>
+<ol>
+<li>As explained earlier, it is best to avoid describing an entire PL as strongly or weakly typed. It is possible for some features of a PL to exhibit weak typing, while other features of the same PL exhibit strong typing.</li>
+<li><p>Even if we ignore the previous point, a (so-called) weakly typed language could associate types with variables and check them at compile time, or it could have no type associated with variables and perform checking at run time. For example, both C and Perl would be described as weakly typed, if we must label the entire language one way or the other. Yet C is statically typed while Perl is dynamically typed. For a further example, consider again the statement shown previously:</p>
+<pre><code>int i = 1.1;</code></pre>
+<p>It so happens that this is valid syntax in both C and Java. Both are statically typed languages. However, C is more weakly typed here, and accepts this without error; the compiler does an automatic type conversion called <strong>coercion</strong>, and the variable holds the integer value 1. Java is more strongly typed, and produces a compiler error. The error can be eliminated if the programmer explicitly calls for a type conversion (and data loss due to truncation) using a <strong>type cast</strong> as follows:</p>
+<pre><code>int i = (int)1.1;</code></pre></li>
+</ol>
+</body>
+</html>

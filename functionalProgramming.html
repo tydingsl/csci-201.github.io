@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="functional-programming">Functional Programming</h1>
+<p>So far, we have discussed two programming paradigms.</p>
+<p>The procedural paradigm flows directly from the traditional von Neumann architecture for hardware; procedural PLs can be seen as the machine language of virtual machines that build on the underlying hardware. The variables of procedural PLs are an expanded version of the hardware registers; taken together, the values they store define the current state of the machine.</p>
+<p>The control structures of procedural PLs are based on the familiar idea of sequential instructions, with conditional jumps that are used for branching and iteration.</p>
+<p>Procedures allow you to modularize larger programs by creating named routines that are, in effect, new instructions in the language. Some procedures, like mathematical functions, take arguments and return values. Other procedures return no value, but are called for their <strong>side effects</strong>: the changes that they make to the current state of the program/machine. Smart, disciplined programmers organize their procedural programs around the concept of abstract data types.</p>
+<p>The object-oriented paradigm expands the procedural paradigm by adding features that support a particular approach to implementing ADTs. An instance (or object) is a container for both the data and the procedures (or methods) that make up an ADT.</p>
+<p>It’s now time to look at a third paradigm. Functional programming ignores or even eliminates the machine-oriented concepts of sequential instructions, current state, and side effects. In its purest form, functional programming consists only of applying functions in the mathematical sense: given certain arguments, a function will always compute the same result. The inputs alone determine that result; there is no influence from any outside information or program state.</p>
+<p>This is a much higher level of abstraction than traditional procedural programming. As a result, it is simpler in concept, which makes it easier to prove formal theorems about the nature of functional programs and computations. On the other hand, you might wonder how function application alone can match the power of procedural programming’s conditional and loop instructions.</p>
+<p>The short answer is that conditional instructions are typically replaced with conditional expressions, and loops are typically replaced with recursion. But to grasp this, you need examples.</p>
+<h2 id="running-lisp">Running Lisp</h2>
+<p>The Lisp programming language and its many dialects and variants are important examples of the functional paradigm.</p>
+<p>Lisp was created around 1958, making it the second oldest PL in wide use (after Fortran). Its strength is LISt Processing, making it great for symbolic and linguistic computation. This complements Fortran’s strength at math (FORmula TRANslation). Lisp has been widely used in artificial intelligence research.</p>
+<p>Lisp syntax takes some adjustment. It uses prefix notation (also called Cambridge or Polish notation). The syntax is fully parenthesized, which means that no precedence rules are needed. Both data and code in Lisp are represented as lists; this makes it easy for Lisp programs to operate on other Lisp programs.</p>
+<p>You will use the web-based environment at <a href="https://repl.it/languages/scheme" class="uri">https://repl.it/languages/scheme</a>. REPL (Read-Evaluate-Print Loop) is a common term for language implementations that are more formally known as <strong>interactive interpreters</strong>. This refers to language interpretation in the familiar sense, where the main user action is to interactively type code that is immediately evaluated for display. This REPL web tool implements a number of different PLs, functional and otherwise. Here we’re using Scheme<a href="#note">*</a>, which is a popular dialect of Lisp.</p>
+<p>At first, we will be ignoring the code editor on the left side of the screen, using only the interpreter prompt on the right side.</p>
+<p>The “hello world” program in Lisp is trivial.</p>
+<p><img src="images/lisphello.png" alt="Lisp Hello, world!" /></p>
+<p>The image above shows that strings of text enclosed in quotes are treated as constants (or “atoms” in Lisp terminology). The interpreter evaluates the input (in red) and displays the resulting value (in green): the string itself.</p>
+<p>Numbers are also atoms, so asking the interpreter to evaluate 5, for example, will produce similarly boring results.</p>
+<p>Now for some prefix notation parenthesized Lisp:</p>
+<p><img src="images/lisptf.png" alt="Lisp true/false" /></p>
+<p>The first input is a Boolean expression; in effect, it asks if 1 is equal to 2. The interpreter responds with a special atom value meaning “false”. (The words <code>false</code> and <code>nil</code> may also be used in some settings.)</p>
+<p>The second Boolean expression asks if 2 is equal to 2. The interpreter responds with a special atom meaning “true”.</p>
+<p>Now try this:</p>
+<p><img src="images/lispquote.png" /></p>
+<p>Since the symbol <code>x</code> has not been given a value (“bound”), the interpreter prints an error.</p>
+<p>In the second input, the single quote means “do not evaluate the symbol that follows”. This input is accepted without error, but really does nothing except echo back the name of the unevaluated symbol.</p>
+<h2 id="constructing-lists">Constructing Lists</h2>
+<p>Next, we will look at some LISt Processing. Lists are recursively defined: for the base case, a list may be empty, or <code>nil</code>. For the recursive cases, a list is an atom followed by a list, or a list followed by a list.</p>
+<p>The <code>cons</code> function constructs a list from two arguments, as shown below.</p>
+<p><img src="images/lispcons.png" alt="Lisp cons" /></p>
+<p>In the first example, the single quotes prevent evaluation of the atom <code>a</code> and the list containing <code>b</code>. The result is a list containing the first argument, followed by all the elements from the second argument (which must be a list).</p>
+<p>The second example shows that the first element does not have to be an atom; it could be a list. The result is a list containing three elements, the first of which is a list containing two elements.</p>
+<h2 id="deconstructing-lists">Deconstructing Lists</h2>
+<p>Working in the opposite direction, we can access the component parts of a list. The <code>car</code> function returns the first element from a list.</p>
+<p><img src="images/car.png" alt="Lisp car" /></p>
+<p>The <code>cdr</code> function returns everything after the first element of the list. Notice that the result is a list.</p>
+<p><img src="images/cdr.png" alt="Lisp cdr" /></p>
+<p>So how would you extract the second element from this list? Applying <code>cdr</code> eliminates the input’s first element from the result; applying <code>car</code> to this result returns the second element from the original input.</p>
+<p><img src="images/cadr.png" alt="Lisp cadr" /></p>
+<p>Notice that sequences like <code>(car (cdr (...)))</code> can be abbreviated as <code>(cadr (...))</code>.</p>
+<p>How would you extract the last element?</p>
+<p><img src="images/caddr.png" alt="Lisp caddr" /></p>
+<p>The first example above returns the input’s last element as a singleton list. The second example returns the input’s last element as an atom.</p>
+<h2 id="conditional-expressions">Conditional Expressions</h2>
+<p>Lisp has no conditional statements; only conditional expressions. This means that there is no way of conditionally choosing different paths through the instructions; there is only a way of conditionally selecting values.</p>
+<p><img src="images/lispif.png" alt="Lisp if" /></p>
+<p>The <code>if</code> function evaluates its first argument; if true, the overall expression returns the second argument; otherwise it returns the third argument.</p>
+<p>Conditional expressions can be nested.</p>
+<p><img src="images/lispifif.png" alt="Lisp nested if" /></p>
+<p>But it is easier to write expressions with multiple conditions using <code>cond</code>, as shown below.</p>
+<p><img src="images/cond.png" alt="Lisp cond" /></p>
+<p>These two examples are exactly the same. The second version shows how the interpreter will allow you to continue input on multiple lines until all parentheses are closed and you press Enter.</p>
+<h2 id="defining-functions">Defining Functions</h2>
+<p><img src="images/square.png" alt="Lisp function definition" /></p>
+<p>The first example above defines a function named <code>square</code>, which takes one argument labeled <code>x</code>. When evaluated, it returns the value of its argument times itself.</p>
+<p>The second example illustrates applying the new function to a value of 4.</p>
+<h2 id="higher-order-functions">Higher-order Functions</h2>
+<p>One important concept of functional programming is that functions can act on other functions. These are called <strong>higher order functions</strong> (also known as functionals or functors). A higher order function takes another function as one of its arguments and/or returns a function. For example, many functional languages include a <code>map</code> function, which takes two arguments: a function, and a list of values to be processed by that function. Here, <code>map</code> is used to apply our square function to a list of values.</p>
+<p><img src="images/lispmap.png" alt="Lisp map" /></p>
+<h2 id="property-lists">Property Lists</h2>
+<p>One common use of Lisp’s lists is for property lists or <strong>p-lists</strong>. These are lists of name, value pairs.</p>
+<p><img src="images/lispplist.png" alt="Lisp property list" /></p>
+<p>Here, the symbol <code>DS</code> is defined to be a list of name, value pairs that represent an employee data record. Evaluating the symbol <code>DS</code> simply returns the list.</p>
+<p>This p-list can be manipulated with the following function.</p>
+<p><img src="images/lispgetprop.png" alt="Lisp getprop" /></p>
+<p>The <code>getprop</code> function takes two arguments: a property name, and a property list. It examines the list’s first element to see if it matches the specified property name. If so, it returns the second item from the list. If not, it recursively searches for the same property name in the sublist that follows the first name, value pair. The effect is a lookup routine, like this:</p>
+<p><img src="images/lispgetpropcalls.png" alt="Lisp getprop calls" /></p>
+<hr />
+<p><a href="#ref">*</a> <img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="Anchor" />Be aware that different dialects of Lisp use different symbols, so some translation is necessary. Although we are technically working with a Lisp dialect named Scheme, I will use the name “Lisp” throughout. Scheme and “Common LISP” are probably the two most popular dialects. A descendant of Scheme called Racket provides some excellent educational resources.</p>
+</body>
+</html>

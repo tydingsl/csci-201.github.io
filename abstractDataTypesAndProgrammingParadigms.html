@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="abstract-data-types-and-programming-paradigms">Abstract Data Types and Programming Paradigms</h1>
+<p>An <strong>abstract data type</strong> (ADT) is usually defined as a set of possible data values plus a set of operations that work on those data values.</p>
+<p>ADTs are the way that you create abstractions in PLs. An <strong>abstraction</strong> is a “big picture viewpoint” that ignores some details. It is seeing the forest instead of the trees. In Chapter 5, McConnell says “if you refer to an object as a ‘house’ rather than a combination of glass, wood, and nails, you’re making an abstraction”.</p>
+<h2 id="structuresrecords-adts-in-procedural-programming">Structures/Records: ADTs in Procedural Programming</h2>
+<p>The values of an ADT typically have some complex form beyond a single number or text string. In other words, an ADT value is typically made up of meaningful parts that have names.</p>
+<p>You saw an example of this idea in Chapter 13: C and C++ have structures, and Pascal has records, all of which have named fields. Here is Pascal code that defines an ADT representing an animal shelter, consisting of four named fields, each of an appropriate type.</p>
+<div class="sourceCode"><pre class="sourceCode pascal"><code class="sourceCode pascal"><span class="kw">type</span> animal_shelter_type = <span class="kw">record</span>
+   cats : cat_type, 
+   bank_balance : dollar_type, 
+   open_jobs : job_type, 
+   scheduled_reservations : reservation_type;
+<span class="kw">end</span>;</code></pre></div>
+<p>You could now model your local shelter by declaring a variable of the new ADT, and setting the value of some of its fields.</p>
+<div class="sourceCode"><pre class="sourceCode pascal"><code class="sourceCode pascal"><span class="kw">var</span> local_shelter : animal_shelter_type;
+local_shelter.cats = <span class="dv">3</span>;</code></pre></div>
+<p>You would need to write routines to implement the operations on the ADT. Maybe something like this.</p>
+<div class="sourceCode"><pre class="sourceCode pascal"><code class="sourceCode pascal"><span class="kw">procedure</span> schedule_new_reservation(<span class="kw">var</span> the_shelter : animal_shelter_type)
+<span class="kw">begin</span>
+   the_shelter.scheduled_reservations = the_shelter.scheduled_reservations + <span class="dv">1</span>;
+<span class="kw">end</span>;</code></pre></div>
+<p>This routine is named <code>schedule_new_reservation</code>, and expects an argument named <code>the_shelter</code> of type <code>animal_shelter_type</code>. It increments the value of the <code>scheduled_reservations</code> field for the shelter record identified by the argument.</p>
+<p>Notice that Pascal resembles GML (and many other PLs besides) by using the dot notation to identify the field/instance variable within the record/instance.</p>
+<p>Also, notice that the Pascal routine expects an argument that identifies which instance of the ADT to work on. This resembles the <code>ds_list</code> ADT that you studied in the “Working with Data” course. Every script that defined a list operation (insert, delete, get size) expected an identifier for a <code>ds_list</code> instance as its first argument, so it knew which list to operate on. It would then operate on that <code>ds_list</code> instance by modifying the values of its named fields (instance variables).</p>
+<p>This approach (where a routine that defines an ADT operation takes an argument to indicate which instance of the ADT to work on), is one characteristic of <strong>procedural programming</strong>. This describes the idea of organizing the program instructions into procedures (routines) that communicate by passing arguments.</p>
+<p>Procedural programming is one of many programming paradigms. A <strong>paradigm</strong> is a mental model, a viewpoint, a way of thinking, a world view, or system of thought. Each PL incorporates one or more programming paradigms to varying extents.</p>
+<h2 id="adts-in-object-oriented-programming">ADTs in Object-oriented Programming</h2>
+<p>In addition to procedural programming, GML incorporates many aspects of a paradigm called <strong>object-oriented programming</strong> (OOP). OOP is an extension of the procedural paradigm, which uses objects as another level of organization.</p>
+<h3 id="class-based-oop-languages">Class-based OOP Languages</h3>
+<p>The vast majority of object-oriented languages implement ADTs using something called a class, and so are called <em>class-based</em> PLs. Usually these PLs use the dot notation to access methods (routines) as well as data fields. For example, here is the animal shelter ADT implemented as a Java class.</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> AnimalShelter {
+   <span class="kw">private</span> CatType cats;
+   <span class="kw">private</span> DollarType bankBalance;
+   <span class="kw">private</span> JobType openJobs;
+   <span class="kw">private</span> ReservationType scheduledReservations;
+
+   <span class="kw">public</span> <span class="dt">void</span> <span class="fu">scheduleNewReservation</span>() {
+      <span class="kw">this</span>.<span class="fu">scheduledReservations</span> = <span class="kw">this</span>.<span class="fu">scheduledReservations</span> + <span class="dv">1</span>;
+   }
+
+   <span class="co">/* Constructor */</span>
+   <span class="kw">public</span> <span class="fu">AnimalShelter</span>() {
+      <span class="kw">this</span>.<span class="fu">cats</span> = <span class="dv">0</span>;
+      <span class="kw">this</span>.<span class="fu">bankBalance</span> = <span class="dv">0</span>;
+      <span class="kw">this</span>.<span class="fu">openJobs</span> = <span class="dv">0</span>;
+      <span class="kw">this</span>.<span class="fu">scheduledReservations</span> = <span class="dv">0</span>;
+   }
+}</code></pre></div>
+<p>Like a record or structure, a class defines the name and data type of the fields that make up the animal shelter ADT. But classes usually go farther than the record/structure: a typical <em>class</em> definition includes the routines that define the ADT operations as well as the data fields.</p>
+<p>To use the Java class above, you would create an instance of the class, then use dot notation to call the routines that are the class’s methods.</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">AnimalShelter localShelter = <span class="kw">new</span> <span class="fu">AnimalShelter</span>();
+
+localShelter.<span class="fu">scheduleNewReservation</span>();</code></pre></div>
+<p>The first statement above declares a reference variable named <code>localShelter</code>, and makes it refer to a brand new instance of the class <code>AnimalShelter</code>. The second statement calls a method to schedule a new reservation at the local shelter. Notice that there is no argument passed in the method call, as there was in the earlier procedural examples. How does the routine know which instance of the ADT to work on? It works on the ADT instance that appears in front of the dot in the method call. This use of the dot notation is sometimes described as “message passing”; you send the <code>scheduleNewReservation</code> message to <code>localShelter</code>. The instance that is receiving the message is sometimes called an “implicit argument”. Inside the method’s code, the instance can be accessed through the built-in name <code>this</code>. Like <code>self</code> in GML, this in Java (and C++) refers to the instance that is the “context” for the current routine call.</p>
+<p>You can think of a class as a template or mold or cookie cutter that is the basis for creating instances. A class is like a blueprint: by itself it provides only a description. You must <strong>instantiate</strong> it (build an instance of it) in order to have a house to live in. You can instantiate the same blueprint as often as you like.</p>
+<h3 id="prototype-based-oop-languages">Prototype-based OOP Languages</h3>
+<p>A few object-oriented languages eliminate the distinction between classes and instances; these are called <em>prototype-based</em> languages for reasons that will become clear. JavaScript is the only widely known prototype-based PL. JavaScript is an extremely popular language, in part because every full-featured Web browser runs JavaScript code. (By the way, there is no real connection between JavaScript and Java; the similar names are just a marketing trick.)</p>
+<p>If class-based languages create instances by looking at the class definition as a kind of blueprint, how does a prototype-based PL like JavaScript create instances? There are two ways. The first is called <em>ex nihilo</em>, which means “from nothing”. This is kind of like building a house just as you want it, without any pre-existing blueprint. Here is some JavaScript.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> local_shelter <span class="op">=</span> <span class="op">{</span> <span class="dt">cats</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">bank_balance </span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">open_jobs </span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">scheduled_reservations </span><span class="op">:</span> <span class="dv">0</span> <span class="op">};</span></code></pre></div>
+<p>This declares a variable <code>local_shelter</code> and makes it refer to a new instance that consists of four (very familiar) named fields, all of which are set to zero values. You can now use the familiar dot notation.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">local_shelter</span>.<span class="at">cats</span> <span class="op">=</span> <span class="dv">3</span><span class="op">;</span>
+<span class="va">local_shelter</span>.<span class="at">employees</span> <span class="op">=</span> <span class="dv">9</span><span class="op">;</span></code></pre></div>
+<p>Wait a minute. Where did this <code>employees</code> field come from? That wasn’t in the definition when the instance was created! So will the assignment produce an error?</p>
+<p>No. If you expected that it would, it’s probably because the <code>employees</code> field was not included in the blueprint. But you need to shift perspective, because there is no blueprint here! With prototype-based OO languages, you can easily modify the structure as you go, without worrying about conforming to any preexisting blueprint.</p>
+<p>The second way that instances are created without classes is by cloning. An existing instance (called the <em>prototype</em> in this context) is cloned to create a second, new instance. Once you have built a house (with or without a blueprint), you can say “use that as the prototype and build another one just like it.”</p>
+<h3 id="gml-class-based-or-prototype-based">GML: Class-based or Prototype-based?</h3>
+<p>You could argue that GML is a class-based language that happens to use the term “object” in place of the term “class”. You can think of the object as the blueprint or cookie cutter that is defined “ahead of time”, and the instances as the things that are built using that blueprint or cookie cutter. Some books on GameMaker encourage this view.</p>
+<p>On the other hand, you could argue that GML is a prototype-based language. As far as I know, every other PL treats the words “object” and “instance” as synonyms, without any distinction. Although GameMaker seems to use the terms differently[^*], there is actually very little distinction between GML objects and instances. As the GameMaker documentation explains, you can use an object name in a context where GML expects an instance identifier. When you do, the instance identified is the first instance of the object to be created. Consider what this implies: when there is only one instance of an object in GM, the instance and the object are interchangeable– they are essentially the same thing. When the second instance of an object is created, we could describe that as cloning, with the original instance as the prototype. And you can certainly modify the structure of GML instances on the fly, similar to the JavaScript example above.</p>
+<p>I think that GML is best described as a prototype-based language. I suspect that many people take the class-based view by default because they are unfamiliar with the idea of prototype-based OOP languages. (I’ve been guilty of this in the past. I wonder about McConnell.) You might think that JavaScript’s popularity would make prototype-based OOP famous. It probably will in time, but for now one expert calls JavaScript “the world’s most misunderstood programming language”. (Bear in mind that many Web developers using JavaScript have no formal training.)</p>
+<p>The bottom line is that different PLs define ADTs in different ways: structures, records, object instances, classes, and who knows what. But the most important idea is the underlying fundamental concept: ADT.</p>
+<h2 id="information-hiding-interface-vs.implementation">Information Hiding: Interface vs. Implementation</h2>
+<p>An ADT (whether implemented with a class or something else) has an “outside” and an “inside”.</p>
+<p>The outside is public information that is shared with anyone. It is the information needed to use the ADT. This outside part is called the ADT’s <strong>interface</strong>. For example, the GML help file gives you all the information you need to work with the <code>ds_queue</code> data structure: what the function names are, what arguments they need, and a description of what they do. This is the ADT’s interface.</p>
+<p>The inside is private information that should not be shared. This is often called the ADT’s <strong>implementation</strong>. For example, the GML help does not tell you if <code>ds_queue</code> is implemented with an array or a linked list. You don’t need to know.</p>
+<p>Restricting ADT information on a need-to-know basis is a practice called <strong>information hiding</strong>.</p>
+<p>Procedural programming languages rarely have features to enforce information hiding. Instead, it is left up to the discipline of the programmers and the quality of their ADT’s design. For example, look back to the Pascal routine <code>schedule_new_reservation</code> above. It does its job by incrementing one of the fields in the ADT. Pascal has no feature that would prevent any program using the ADT from modifying that field’s value directly. If you were writing documentation for the ADT, you would say to call the <code>schedule_new_reservation</code> routine to set up a new reservation, but would not mention the field name at all. That’s information hiding, and hopefully no one will write code to do something like setting the <code>scheduled_reservations</code> field to -1.</p>
+<p>Many class-based OOP languages have features that enforce information hiding. They allow the programmer to set access permissions on the members of the class. For example, look back to the Java class shown above, and notice the keywords <code>private</code> and <code>public</code> showing up a lot. The <code>private</code> keyword prevents a class member (field or method) from being used outside of the class itself. The four data fields in the Java class cannot be accessed by code that is not defined inside the same class. The <code>public</code> keyword means that a class member is available to all code.</p>
+<p>Assuming that you are writing code outside of the Java class above, the following would produce a compiler error.</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">localShelter.<span class="fu">scheduledReservations</span> = localShelter.<span class="fu">scheduledReservations</span> + <span class="dv">1</span>;</code></pre></div>
+<p>Even though <code>scheduledReservations</code> is a valid data member of the <code>localShelter</code> object’s class, you cannot access it from outside the class because it is <code>private</code>. So how do you get anything done? That’s where the public interface comes in. You can do the following (as shown previously).</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java">localShelter.<span class="fu">scheduleNewReservation</span>();</code></pre></div>
+<p>This works because <code>scheduleNewReservation()</code> is a valid method in the object’s class, and it is declared <code>public</code>. The public methods of a Java class define its interface.</p>
+<p>It is tempting to declare all the data fields public so that whatever you want to do will work, and there are no hoops to jump through. It takes more effort to set up a good public interface that hides the internal details of the implementation. But it is worth it for many reasons, especially security and ease of change.</p>
+<p>Would you open up all the ports on a network firewall so that anyone could communicate in any way they wanted? Hopefully not, because of the security risks. And you don’t declare all your data to be public for the same reason. If any code can directly access the raw data for the number of reservations, someone might set it to a negative number or do other things that should not be allowed. It is much better to declare all data private, and use public methods to allow only the types of operations you define. This is like closing all firewall ports by default, and opening only those to allow the types of traffic that you approve.</p>
+<p>As for ease of change, suppose you wanted to modify the program so that each reservation was recorded on a central calendar. If you have hidden implementation details behind a good interface as shown, this is no problem. You simply add the new code to the existing <code>scheduleNewReservation()</code> method. But if instead you had allowed anyone to directly increment the count of reservations from any code, you would have no way to easily implement the change.</p>
+<p>McConnell uses the term <strong>encapsulation</strong> to describe these PL features that enforce information hiding. (Be warned that some other authors use this term somewhat differently.) In Chapter 5, McConnell writes that encapsulation picks up where abstraction leaves off. He explains that abstraction means you’re allowed to look at an instance at a high level of detail. Encapsulation means you’re not allowed to look at an instance at any other level of detail. “Continuing the housing-materials analogy: encapsulation is a way of saying that you can look at the outside of the house, but you can’t get close enough to make out the door’s details. You are allowed to know that there’s a door, and … whether the door is open or closed, but you’re not allowed to know whether the door is made of wood, fiberglass, steel, or some other material.”</p>
+<hr />
+</body>
+</html>

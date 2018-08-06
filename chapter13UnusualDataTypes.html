@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="chapter-13-unusual-data-types">Chapter 13: Unusual Data Types</h1>
+<p>Read <em>Code Complete</em> Chapter 13.</p>
+<h2 id="structures">13.1 Structures</h2>
+<p>In most PLs, the values in an array must have the same data type (“homogenous”), and must be accessed using an integer index.</p>
+<p>In contrast, a <strong>structure</strong> is a data type that can contain multiple values of different data types (“heterogenous”). The individual values in the structure can be accessed by name. These values are sometimes called <strong>fields</strong>.</p>
+<p>Another common term for “structure” is <strong>record</strong>. A structure or record is similar to a row in a relational database (or a table of data), with the field names in the column labels and the values in the table cells.</p>
+<p>Structures or records can be described as an early, limited form of object-oriented concepts. GameMaker instances resemble structures in that each instance can contain multiple instance variables (fields) that are referred to by name. Each GM instance is a structure with fields for x coordinate, y coordinate, speed, etc.</p>
+<p>Here is a simple example, in C.</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+
+<span class="dt">void</span> main()
+{
+    <span class="kw">struct</span> batter
+    {
+        <span class="dt">unsigned</span> <span class="dt">int</span> at_bats;
+        <span class="dt">unsigned</span> <span class="dt">int</span> hits;
+    };
+
+    <span class="kw">struct</span> batter babe_ruth; <span class="co">/* variable babe_ruth is a struct of type batter */</span>
+
+    babe_ruth.at_bats = <span class="dv">8399</span>; 
+    babe_ruth.hits = <span class="dv">2873</span>;
+
+    printf(<span class="st">&quot;Babe Ruth&#39;s lifetime batting average: %f</span><span class="sc">\n</span><span class="st">&quot;</span>, 
+           (<span class="dt">double</span>)babe_ruth.hits / babe_ruth.at_bats);
+}</code></pre></div>
+<p>Unless you are programming in the C language, you are unlikely to be using structures in this limited form. However, the concepts are relevant background for any PL that supports object-oriented concepts. You will learn more about object-oriented concepts that extend structures in a later chapter.</p>
+<h2 id="references-and-pointers">13.2 References and Pointers</h2>
+<p>The code and examples in this section are most directly relevant to programming in the C and C++ languages. The underlying concepts are valuable for study of many PLs, however, and for better understanding of how PLs manage memory storage. If you are not studying C or C++, feel free to skip the language-specific subsections starting on page 332.</p>
+<p>You learned some about references and pointers in Chapter 10 when we covered persistence and dynamic memory allocation. Here is a recap.</p>
+<p>When GML scripts create a new instance by calling the <code>instance_create</code> function, the GM environment returns the instance ID for a newly created instance. This ID is simply an integer “serial number” that uniquely identifies the instance.</p>
+<p>Many PLs contain similar concepts. GML instance IDs are one example of a <strong>reference</strong>: a variable that, instead of a data value, holds information that allows indirect access to a data value. In many PLs, the reference is not a “serial number” as in GML, but the numeric RAM address where the data is stored. This kind of reference is sometimes called a <strong>pointer</strong>. (Be aware that different PLs use these terms in somewhat different ways.)</p>
+<p>Pointers are low-level concepts that provide a great deal of power and flexibility, especially where pointer arithmetic is used. (Pointer arithmetic means performing calculations on memory addresses in order to navigate through memory.) Pointers can also be very dangerous if misused.</p>
+<p>Other forms of references are designed to be safer, if not as powerful as pointers. These include:</p>
+<ul>
+<li><a href="https://isocpp.org/wiki/faq/references">C++’s implementation of references</a>, plus libraries implementing various forms of pointers</li>
+<li><a href="http://study.com/academy/lesson/reference-data-types-in-java.html">reference types in Java</a></li>
+<li><a href="https://docstore.mik.ua/orelly/perl/prog3/ch08_04.htm">Perl’s symbolic references</a></li>
+<li><a href="http://php.net/manual/en/language.variables.variable.php">PHP’s “variable variables”</a></li>
+</ul>
+<p>Notice that dynamic memory allocation is not the only situation where references/pointers are used in programming. We will see some other examples in class, and in future reading assignments.</p>
+<p>You might enjoy <a href="https://youtu.be/6pmWojisM_E">Pointer Fun with Binky</a>.</p>
+<h2 id="global-data">13.3 Global Data</h2>
+<p>Use global variables only as a last resort. The concept of <strong>access routines</strong> described in this section is very important, and will re-appear in a number of other contexts.</p>
+<h2 id="show-and-tell">Show and Tell</h2>
+<p>Come to class prepared for show and tell on the following topics.</p>
+<ul>
+<li>Your PL’s support for structures or records. Also, your PL’s support for object-oriented concepts, a related idea which we will explore later on.</li>
+<li>Your PL’s support for reference or pointer types.</li>
+<li>Your PL’s features related to global data and/or access routines.</li>
+</ul>
+<p>We will be exploring memory management and pointer issues in class using some C code that you will find in this chapter’s homework folder in your repository.</p>
+</body>
+</html>

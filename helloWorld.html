@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="hello-world">Hello, world!</h1>
+<p>Traditionally, the first program that you learn to write in a new language is a program that displays the message “Hello, world!”.</p>
+<p>For most languages, this is about the simplest complete program possible. When you successfully write it, you’ve learned to do two fundamental things with your language:</p>
+<ol>
+<li>Get a program– any program– to run by doing whatever is necessary in terms of program structure, file setup, compilation, linking, execution, etc.</li>
+<li>Produce output, which is probably the most fundamental (simple and important) thing to do.</li>
+</ol>
+<p>Try to write and run the “Hello, world!” program in your language.</p>
+<h2 id="language-implementations">Language Implementations</h2>
+<p>As you may recall from the “How Hardware Works” course, there are two fundamental approaches to implementing a programming language: translation and interpretation.</p>
+<p><img src="images/sevenlevel.jpg" alt="A layered system architecture." /></p>
+<p>In our multi-level architecture scheme, we are primarily looking at Level 5, sometimes drilling down into Level 4, and occasionally looking further down.</p>
+<h3 id="translation">Translation</h3>
+<p>Source code in the PL is translated into a different language that the underlying machine can more easily handle. The most common translation program is a compiler, and I will often use “compilation” as a synonym for “translation”. An assembler is another type of translation program that we discuss in other courses.</p>
+<p>Translation produces a new program, in a different language, that is actually executed by an underlying machine (either physical or virtual). This means that the translation only needs to happen once (assuming that you are finished making changes to your program).</p>
+<h3 id="interpretation">Interpretation</h3>
+<p>A run-time environment simulates the effect of the program in your PL. At run time, a program called an interpreter reads your source code and executes machine instructions that have the same effect.<br />
+This means that the interpretation process happens every time you execute your program. This often means that:</p>
+<ul>
+<li>interpreted programs are slower than translated/compiled ones</li>
+<li>you must have the source code to run the program.</li>
+</ul>
+<p>The points are gross generalizations, with many caveats and exceptions.</p>
+<h3 id="hybrid-implementations">Hybrid implementations</h3>
+<p>Some language implementations combine translation and interpretation. The most common example is the typical Java implementation. Usually, Java source code is compiled into a binary language called Java byte code. However, Java byte code is not the machine language that runs on PCs, Macs, or the like. Instead, it is the machine language for the Java Virtual Machine (JVM).</p>
+<p>The JVM is usually a piece of software that interprets the Java byte code. This hybrid approach allows the same Java byte code to run, without changes, on different operating systems and different hardware. (The JVM software is specific to the OS and hardware, so the Java application programmer is insulated from these differences. It is also possible to find the JVM implemented directly in hardware.)</p>
+<p>Microsoft’s .NET platform takes a somewhat similar approach. In this case, the VM/interpretation is built into the OS, and there are multiple PLs (C++, VB, C#) that can be compiled to the same “Common Intermediate Language” bytecode.</p>
+<h3 id="implementation-is-independent-of-language">Implementation is independent of language</h3>
+<p>Any PL can be implemented through translation, or through interpretation, or through a hybrid approach.<br />
+While many languages are strongly associated with particular approaches (C is usually compiled, Java is usually hybrid), there is nothing required or necessary about this. There are C interpreters and there are non-hybrid Java compilers. These are alternative implementations of the same language.</p>
+<h2 id="programming-toolsets">Programming toolsets</h2>
+<p>Again, there are two fundamental approaches, which can be blended to varying degrees.</p>
+<h3 id="integrated-development-environments-ide">Integrated Development Environments (IDE)</h3>
+<p>IDEs are a “Swiss army knife” that combine many useful tools. Typically they include the ability to do many of the following within the same tool:</p>
+<ul>
+<li>edit source code</li>
+<li>execute programs</li>
+<li>click on an error message to jump to that line of code</li>
+<li>trace programs by executing them one step at a time</li>
+<li>view the contents of variables in memory</li>
+<li>measure the performance of different steps within the program</li>
+<li>file management</li>
+<li>team coordination features</li>
+<li>task tracking</li>
+</ul>
+<p>Some IDEs target a particular programming language; others can handle multiple PLs. Popular IDEs include Eclipse, NetBeans, and Microsoft Visual Studio.</p>
+<h3 id="old-school">Old School</h3>
+<p>Many excellent programmers avoid IDEs and primarily use a text editor program plus a compiler or interpreter for their PL. The other features listed above can be used through a set of independent tools.</p>
+<p>Programmers can become very attached to their text editor of choice, leading to “editor wars”.</p>
+<p><strong>xkcd: Real Programmers</strong></p>
+<p><img src="http://imgs.xkcd.com/comics/real_programmers.png" alt="Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want." /></p>
+<h2 id="what-about-gamemaker">What about GameMaker?</h2>
+<p>Let’s relate these concepts to the GameMaker programming that we covered in the first two courses.</p>
+<p>While older versions of GameMaker used interpretation, GameMaker Studio apparently uses a virtual machine approach, similar to Java. Apparently, this is how GameMaker Studio targets multiple platforms: Windows, Mac, Linux, iOS, Android, XBox, etc.</p>
+<p>There is also an optional compiler, available for a fee, that claims a 100x speed improvement.</p>
+<p>As for toolsets, GameMaker Studio is an integrated development environment. However, you can change its behavior to use any text editor you wish in place of the built-in text editor for GML code.</p>
+</body>
+</html>

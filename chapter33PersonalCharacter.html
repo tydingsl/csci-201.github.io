@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="chapter-33-personal-character">Chapter 33: Personal Character</h1>
+<p>Read <em>Code Complete</em> Chapter 33.</p>
+<p>This chapter shows that dedication to excellence in a particular profession can complement an individual’s overall development as an excellent person leading their ideal life.</p>
+<p>It is the kind of material that many students will be tempted to blow off. In asking you not to, I will cite two points.</p>
+<ol>
+<li>No one can force you to be great. But if you want to be great, this chapter contains a lot of clues. (And not just about programming or computers.)</li>
+<li>Sticking closer to programming, McConnell cites data showing that great programmers are 10 times as effective as poor programmers. Can you honestly say that you don’t care which end of that scale is you?</li>
+</ol>
+<p>If you genuinely don’t want to be great, and don’t care which end of the scale is you, then I am 100% sincere that I want to speak with you personally and understand your perspective. You know how to find me.</p>
+<h2 id="why-now">Why now?</h2>
+<p>McConnell addresses the “Why?” question, arguing for the importance of personal character to programming (and to any human activity).</p>
+<p>I want to address the question “Why now?”. McConnell puts this near the end of the book. Why cover it near the beginning of the course?</p>
+<p>Because nearly every other chapter will introduce specific information that should be considered and applied in light of the personal character emphasis.</p>
+<h2 id="an-example">An Example</h2>
+<p>Skeptical? Take one small (but critical) example from the chapter we’ve already covered. On page 243 (and again in the end-of-chapter checklists) McConnell advises enabling all compiler warnings and paying attention to them.</p>
+<p>First, some background in case you are not familiar with the relevant details. Compilers (and other programming toolsets) can automatically find a variety of problems and potential problems in a program’s source code. (This is called <strong>static analysis</strong> because it simply looks at the code without running it.) The details vary from one PL and one tool to another.</p>
+<p>There is a strong cultural norm among programmers that many of these warnings are just noise to be ignored. (Generally, these would not be the great programmers.) As a result, the default behavior for many compilers is to show only some kinds of warnings and errors, and to suppress some of the warnings that could be detected.</p>
+<p>What’s worse, many programmers change the default behavior <em>in the wrong direction</em>, so that the compiler suppresses even more kinds of potential issues. Often programmers will disable all of these messages altogether.</p>
+<p>Now, a real world professional example of the results. In February 2014, Apple announced and fixed an iOS flaw in the encryption underlying secure https Web transactions. For up to 18 months, iOS users had been vulnerable to having their (supposedly) secure transactions hijacked by hackers.</p>
+<p>The entire C source file is open source, available <a href="http://opensource.apple.com/source/Security/Security-55471/libsecurity_ssl/lib/sslKeyExchange.c">here</a>.</p>
+<p>Here is a snippet that contains the problem.</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">    <span class="cf">if</span> ((err = ReadyHash(&amp;SSLHashSHA1, &amp;hashCtx)) != <span class="dv">0</span>)
+        <span class="cf">goto</span> fail;
+    <span class="cf">if</span> ((err = SSLHashSHA1.update(&amp;hashCtx, &amp;clientRandom)) != <span class="dv">0</span>)
+        <span class="cf">goto</span> fail;
+    <span class="cf">if</span> ((err = SSLHashSHA1.update(&amp;hashCtx, &amp;serverRandom)) != <span class="dv">0</span>)
+        <span class="cf">goto</span> fail;
+    <span class="cf">if</span> ((err = SSLHashSHA1.update(&amp;hashCtx, &amp;signedParams)) != <span class="dv">0</span>)
+        <span class="cf">goto</span> fail;
+        <span class="cf">goto</span> fail;
+    <span class="cf">if</span> ((err = SSLHashSHA1.final(&amp;hashCtx, &amp;hashOut)) != <span class="dv">0</span>)
+        <span class="cf">goto</span> fail;</code></pre></div>
+<p>You don’t need to understand C or the details of this program to see the flaw. Look at the next-to-last <code>if</code> statement. If that condition is true, the program will goto a line labeled <code>fail</code>. The next statement tells the code to goto the <code>fail</code> line <em>always– in all cases, no matter what</em>. This is the bug; this code that is meant to set up the secure connection <em>never</em> completes successfully.</p>
+<p>Here are some observations. All of them relate to violations of guidelines that McConnell will suggest, or has already.</p>
+<ul>
+<li>The indenting implies that the second <code>goto</code> only happens when the <code>if</code> evaluates to <code>true</code>, but it is misleading. Curly braces around the multiple statements under the <code>if</code> would eliminate the bug (although the code would still be strangely redundant).</li>
+<li>It’s not clear how the <code>goto</code> statement was duplicated, but copying and modifying code is a major source of errors. Copy and paste can kill.</li>
+<li>The last <code>if</code> statement can never execute. The preceding <code>goto</code> prevents us from ever reaching that code.</li>
+</ul>
+<p>This last point is the one I want to emphasize here: unreachable code can be detected by static analysis, and nearly every C compiler can automatically warn about this.</p>
+<p>Let’s be clear: it is almost certain that <em>iOS programmers released a horrible security flaw that their compiler automatically told them about!</em> At least one of the following must be true.</p>
+<ul>
+<li>They were not using a compiler that performed such checks. (Unlikely, but if so, they should get one and use it.)</li>
+<li>The compiler warned them, but the programmers ignored the message that pointed out a major danger. (A bit more likely.)</li>
+<li>They configured the compiler to not display the message that would have pointed out a major danger. (Most likely.)</li>
+</ul>
+<p>If you aren’t outraged, you aren’t paying attention. Do you now grasp the importance of McConnell’s guidance?</p>
+<p>In fact, we can’t call it “guidance”. In a forum comment related to this iOS flaw, I ranted: “Professional ethics demand that we advance toward a culture where ignorance of these practices is considered incompetence, and willful failure to apply them is considered malpractice.”</p>
+<p>As an instructor, it’s my responsibility to address the ignorance. Consider it done. As a computing professional, it’s your ethical responsibility to apply the practices. Start now.</p>
+</body>
+</html>

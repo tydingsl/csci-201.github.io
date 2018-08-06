@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="./default.css" type="text/css" />
+</head>
+<body>
+<h1 id="chapters-16-19-controlling-loops">Chapters 16, 19: Controlling Loops</h1>
+<p>Read <em>Code Complete</em> Chapter 16, plus sections 19.3-19.6.</p>
+<h2 id="selecting-the-kind-of-loop">16.1 Selecting the Kind of Loop</h2>
+<p>Study the following alternative terminology. It is more precise and also more widely used.</p>
+<table>
+<thead>
+<tr class="header">
+<th>McConnell’s Term</th>
+<th>Preferred Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rigid</td>
+<td><strong>definite iteration</strong></td>
+</tr>
+<tr class="even">
+<td>flexible</td>
+<td><strong>indefinite iteration</strong></td>
+</tr>
+<tr class="odd">
+<td>beginning (test location)</td>
+<td><strong>pre-test loop</strong></td>
+</tr>
+<tr class="even">
+<td>end (test location)</td>
+<td><strong>post-test loop</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Iteration</strong> refers to repetition driven by a loop.</p>
+<p>Carefully study the C++ example at the bottom of page 369, and the improved version on the following page. (GML and C++ both belong to the C-like family of languages, so you should be able to follow the logic flow.) The “before” code uses a practice that some authors call “loop and a half”; the repeated code is like a half pass through the loop before the loop starts. Some authors even teach this technique to beginning programmers, but I agree with McConnell that it should be avoided.</p>
+<h2 id="creating-loops-from-the-inside-out">16.3 Creating Loops from the Inside Out</h2>
+<p>Many less experienced programmers feel stuck when starting a complex programming task. This section gives a specific example of applying some more general rules:</p>
+<ol>
+<li>Write in pseudocode/comments/English before writing in your PL. (Chapter 9 is all about this approach. I recommend it.)</li>
+<li>Write in incomplete, broken PL as is helpful. After you have the ideas down, you can work on making the code complete and syntactically correct.</li>
+<li>Don’t get stuck on the idea of writing the final code in order from first line to last. It is often easier to work on smaller parts out of order and put them together.</li>
+</ol>
+<h2 id="null-statements">19.3 Null Statements</h2>
+<p>Sometimes students mistakenly write code similar to the example given at the top of page 444, but put the semicolon at the end of the while line. They will often follow this with a block of code that they expect to be the body of the loop, but it is not. This mistake usually creates an infinite loop, because the situation tested in the Boolean expression never changes.</p>
+<p>If you do need to write an empty loop, be sure that you use one of the techniques shown to indicate that it is intentional.</p>
+<h2 id="deep-nesting-complexity">19.4, 19.6 Deep Nesting, Complexity</h2>
+<p>Many students reach a stage where they try to use one long routine to solve programming problems that are too big for that approach. This often involves deep nesting and repetitive blocks of code.</p>
+<p>To the greatest extent prudent, you should follow the guidelines here in your programming. One of the best ways to reduce nesting, complexity, and redundancy is to break up the code into a larger number of routines. We will see more on that topic soon.</p>
+</body>
+</html>
