@@ -75,12 +75,8 @@ Programmers can become very attached to their text editor of choice, leading to 
 
 ![Real programmers set the universal constants at the start such that the universe evolves to contain the disk with the data they want.](http://imgs.xkcd.com/comics/real_programmers.png)
 
-## What about GameMaker?
+## What about JavaScript?
 
-Let's relate these concepts to the GameMaker programming that we covered in the first two courses.
+Let's relate these concepts to the JavaScript programming that we covered in the first two courses.
 
-While older versions of GameMaker used interpretation, GameMaker Studio apparently uses a virtual machine approach, similar to Java. Apparently, this is how GameMaker Studio targets multiple platforms: Windows, Mac, Linux, iOS, Android, XBox, etc. 
-
-There is also an optional compiler, available for a fee, that claims a 100x speed improvement.
-
-As for toolsets, GameMaker Studio is an integrated development environment. However, you can change its behavior to use any text editor you wish in place of the built-in text editor for GML code. 
+While older Web browsers interpreted JavaScript, current browsers use a sophisticated form of "just in time" (JIT) compiling. Traditional compiling was a manual, pre-runtime "batch" job: the programmer would feed source code through the compiler to produce an executable. In contrast, JIT compiling happens automatically at runtime. 
