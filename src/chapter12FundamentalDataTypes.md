@@ -4,11 +4,11 @@ Read *Code Complete* Chapter 12.
 
 You are already familiar with the most basic concepts of data types. In the "How Hardware Works" course, you learned that all computer data is bits. However, to understand the meaning of a sequence of bits, you must know what encoding was used. For example, 10000010 is 130 if it was encoded as an unsigned integer. Or it could be the signed integer -2. It could be part of the encoding of a 16- or 32-bit floating point number. It might represent a curved quotation mark character in an extended ASCII code called Windows-1252, or it could be half of some Unicode character.
 
-In a programming environment, these different data encodings are called **data types**. Every data value in every PL has a data type. In **statically typed** PLs, each variable has a designated data type, and can only store values of that type. In **dynamically typed** PLs, including GML, a variable has no designated data type. It can initially hold a value of one data type, and later hold a value of a different data type.
+In a programming environment, these different data encodings are called **data types**. Every data value in every PL has a data type. In **statically typed** PLs, each variable has a designated data type, and can only store values of that type. In **dynamically typed** PLs, including JavaScript, a variable has no designated data type. It can initially hold a value of one data type, and later hold a value of a different data type.
 
 ## 12.1-12.3 Numbers
 
-GML has a data type named "real" that holds any [real number](http://simple.wikipedia.org/wiki/Real_number). Examples of GML real literals are 5, 75.0, and 3.14. There is no documentation available for the exact encoding used.
+JavaScript has a data type named `number` that implements IEEE 754 double-precision floating point numbers. Examples of literal `number` values are `5`, `75.0`, and `3.14`. 
 
 Many PLs have multiple numeric types. Often, integer (whole number) values are encoded differently from numbers with a decimal point[^*].
 
@@ -20,15 +20,15 @@ Your reading points out some programming pitfalls that should be familiar to you
 
 A character refers to a single symbol, as encoded by some character code set (e.g., ASCII, Unicode). A **string** refers to a sequence of characters, or text. Different PLs have different ways of encoding the beginning/end of a string.
 
-While many PLs have separate data types for a single character and a string of characters, GML has only a string type. Examples of GML string literals are "Hello" and 'world'. There is no documentation of the exact encoding used.
+While many PLs have separate data types for a single character and a string of characters, JavaScript has only a `string` type. Examples of JavaScript string literals are `"Hello"` and `'world'`.
 
 ## 12.5 Boolean ~~Variable~~s
 
-Although McConnell's book tries to be largely PL neutral, he has a tendency to assume static typing. As a dynamically typed language, GML does not have Boolean variables (or variables of any particular type), but it does have Boolean values: `true` and `false`.
+Although McConnell's book tries to be largely PL neutral, he has a tendency to assume static typing. As a dynamically typed language, JavaScript does not have Boolean variables (or variables of any particular type), but it does have Boolean values: `true` and `false`.
 
 Some languages (notably C), have a way of simulating Boolean values for evaluation in Boolean contexts (`if` statements, loops, etc.). C does not recognize a Boolean type or the words "true" and "false", but it treats the value 0 (integer zero) as equivalent with "false" in a Boolean context. Any non-zero value is treated equivalent to "true".
 
-JavaScript has a Boolean type and recognizes the literal values `true` and `false`. However, it performs type coercion so that `0`, `-0`, `NaN` (IEEE Std. 754's "not a number"), and the special values `null`  and `undefined` are equivalent to `false` when they appear in a Boolean expression context. All other values will be coerced to `true` in such contexts. The terms "falsy" and "truthy" are sometimes used to describe these two sets of values.
+JavaScript has a `boolean` type and recognizes the literal values `true` and `false`. However, it performs type coercion so that `0`, `-0`, `NaN` (IEEE Std. 754's "not a number"), and the special values `null`  and `undefined` are equivalent to `false` when they appear in a Boolean expression context. All other values will be coerced to `true` in such contexts. The terms "falsy" and "truthy" are sometimes used to describe these two sets of values.
 
 ## 12.6, 12.7 Enumerated Types and Named Constants
 
@@ -36,7 +36,14 @@ These topics are somewhat similar; my comments will take them in the reverse ord
 
 A **named constant** is what mathematicians would simply call a constant. Like a variable, it is a name that represents a value; unlike a variable, the value will never change. Common examples are mathematical constants, unit conversion factors, and some other kinds of symbolic names.
 
-[GameMaker supports named constants](http://docs.yoyogames.com/source/dadiospice/001_advanced%20use/010_macros.html) through a feature called "macros". For PLs that do not support constants, you can simulate them by using variables with a different naming convention. Here are some examples.
+JavaScript supports named constants with the `const` reserved word.
+
+```javascript
+const maxRows = 3;
+maxRows = 4; // error: cannot reassign value of a constant
+```
+
+For PLs that do not support named constants, you can simulate them by using variables with a different naming convention. Here are some examples.
 
 ```
 MAX_ROWS = 3; // rows in the TicTacToe board
@@ -59,9 +66,9 @@ An **enumerated type** is a new, custom data type defined by the programmer. It 
 
 ## 12.8 Arrays
 
-This section is short and straightforward. You are already well-versed in array use from your previous experience with GML.
+This section is short and straightforward. You are already well-versed in array use from your previous experience with JavaScript.
 
-You should know that there is one unusual thing about GML arrays: they are **dynamic arrays**, meaning that they automatically grow in size as needed. Most PLs have **static arrays**, requiring you to specify the size of an array when it is created. Often there is no way to increase the size of an array; this must be addressed by creating a second, larger array (requiring excessive memory resources, at least temporarily) and copying the values from the smaller old array to the larger new array, at considerable expense. (This discussion is common for the basic arrays included as fundamental data types. Many PLs that do not provide dynamic arrays as a fundamental type have libraries of utilities to provide equivalent functions.)
+You should know that there is one unusual thing about JavaScript arrays: they are **dynamic arrays**, meaning that they automatically grow in size as needed. Most PLs have **static arrays**, requiring you to specify the size of an array when it is created. Often there is no way to increase the size of an array; this must be addressed by creating a second, larger array (requiring excessive memory resources, at least temporarily) and copying the values from the smaller old array to the larger new array, at considerable expense. (This discussion is common for the basic arrays included as fundamental data types. Many PLs that do not provide dynamic arrays as a fundamental type have libraries of utilities to provide equivalent functions.)
 
 ## 12.9 Type Aliasing
 

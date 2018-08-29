@@ -6,29 +6,69 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link rel="stylesheet" href="./default.css" type="text/css" />
 </head>
 <body>
 <h1 id="chapter-12-fundamental-data-types">Chapter 12: Fundamental Data Types</h1>
 <p>Read <em>Code Complete</em> Chapter 12.</p>
 <p>You are already familiar with the most basic concepts of data types. In the “How Hardware Works” course, you learned that all computer data is bits. However, to understand the meaning of a sequence of bits, you must know what encoding was used. For example, 10000010 is 130 if it was encoded as an unsigned integer. Or it could be the signed integer -2. It could be part of the encoding of a 16- or 32-bit floating point number. It might represent a curved quotation mark character in an extended ASCII code called Windows-1252, or it could be half of some Unicode character.</p>
-<p>In a programming environment, these different data encodings are called <strong>data types</strong>. Every data value in every PL has a data type. In <strong>statically typed</strong> PLs, each variable has a designated data type, and can only store values of that type. In <strong>dynamically typed</strong> PLs, including GML, a variable has no designated data type. It can initially hold a value of one data type, and later hold a value of a different data type.</p>
+<p>In a programming environment, these different data encodings are called <strong>data types</strong>. Every data value in every PL has a data type. In <strong>statically typed</strong> PLs, each variable has a designated data type, and can only store values of that type. In <strong>dynamically typed</strong> PLs, including JavaScript, a variable has no designated data type. It can initially hold a value of one data type, and later hold a value of a different data type.</p>
 <h2 id="numbers">12.1-12.3 Numbers</h2>
-<p>GML has a data type named “real” that holds any <a href="http://simple.wikipedia.org/wiki/Real_number">real number</a>. Examples of GML real literals are 5, 75.0, and 3.14. There is no documentation available for the exact encoding used.</p>
+<p>JavaScript has a data type named <code>number</code> that implements IEEE 754 double-precision floating point numbers. Examples of literal <code>number</code> values are <code>5</code>, <code>75.0</code>, and <code>3.14</code>.</p>
 <p>Many PLs have multiple numeric types. Often, integer (whole number) values are encoded differently from numbers with a decimal point[^*].</p>
 <p>In addition, many PLs provide multiple integer types and/or multiple decimal-point types. The PL may allow the programmer to choose signed or unsigned types. It may also provide encodings of different lengths to allow tradeoffs between memory usage and data range. For example, a PL might provide two integer types: 16-bit and 32-bit. The 16-bit type would be preferred due to its smaller memory size, unless the programmer needs to work with values that would overflow 16 bits. The 32-bit integer is available to accommodate the larger range of values.</p>
 <p>Your reading points out some programming pitfalls that should be familiar to you from earlier studies, including overflow and unusual characteristics of floating-point types. Learn to guard against the other pitfalls described here, such as divide by zero and (unintended) integer division.</p>
 <h2 id="characters-and-strings">12.4 Characters and Strings</h2>
 <p>A character refers to a single symbol, as encoded by some character code set (e.g., ASCII, Unicode). A <strong>string</strong> refers to a sequence of characters, or text. Different PLs have different ways of encoding the beginning/end of a string.</p>
-<p>While many PLs have separate data types for a single character and a string of characters, GML has only a string type. Examples of GML string literals are “Hello” and ‘world’. There is no documentation of the exact encoding used.</p>
+<p>While many PLs have separate data types for a single character and a string of characters, JavaScript has only a <code>string</code> type. Examples of JavaScript string literals are <code>&quot;Hello&quot;</code> and <code>'world'</code>.</p>
 <h2 id="boolean-variables">12.5 Boolean <del>Variable</del>s</h2>
-<p>Although McConnell’s book tries to be largely PL neutral, he has a tendency to assume static typing. As a dynamically typed language, GML does not have Boolean variables (or variables of any particular type), but it does have Boolean values: <code>true</code> and <code>false</code>.</p>
+<p>Although McConnell’s book tries to be largely PL neutral, he has a tendency to assume static typing. As a dynamically typed language, JavaScript does not have Boolean variables (or variables of any particular type), but it does have Boolean values: <code>true</code> and <code>false</code>.</p>
 <p>Some languages (notably C), have a way of simulating Boolean values for evaluation in Boolean contexts (<code>if</code> statements, loops, etc.). C does not recognize a Boolean type or the words “true” and “false”, but it treats the value 0 (integer zero) as equivalent with “false” in a Boolean context. Any non-zero value is treated equivalent to “true”.</p>
-<p>JavaScript has a Boolean type and recognizes the literal values <code>true</code> and <code>false</code>. However, it performs type coercion so that <code>0</code>, <code>-0</code>, <code>NaN</code> (IEEE Std. 754’s “not a number”), and the special values <code>null</code> and <code>undefined</code> are equivalent to <code>false</code> when they appear in a Boolean expression context. All other values will be coerced to <code>true</code> in such contexts. The terms “falsy” and “truthy” are sometimes used to describe these two sets of values.</p>
+<p>JavaScript has a <code>boolean</code> type and recognizes the literal values <code>true</code> and <code>false</code>. However, it performs type coercion so that <code>0</code>, <code>-0</code>, <code>NaN</code> (IEEE Std. 754’s “not a number”), and the special values <code>null</code> and <code>undefined</code> are equivalent to <code>false</code> when they appear in a Boolean expression context. All other values will be coerced to <code>true</code> in such contexts. The terms “falsy” and “truthy” are sometimes used to describe these two sets of values.</p>
 <h2 id="enumerated-types-and-named-constants">12.6, 12.7 Enumerated Types and Named Constants</h2>
 <p>These topics are somewhat similar; my comments will take them in the reverse order of the reading.</p>
 <p>A <strong>named constant</strong> is what mathematicians would simply call a constant. Like a variable, it is a name that represents a value; unlike a variable, the value will never change. Common examples are mathematical constants, unit conversion factors, and some other kinds of symbolic names.</p>
-<p><a href="http://docs.yoyogames.com/source/dadiospice/001_advanced%20use/010_macros.html">GameMaker supports named constants</a> through a feature called “macros”. For PLs that do not support constants, you can simulate them by using variables with a different naming convention. Here are some examples.</p>
+<p>JavaScript supports named constants with the <code>const</code> reserved word.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">const</span> maxRows <span class="op">=</span> <span class="dv">3</span><span class="op">;</span>
+maxRows <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// error: cannot reassign value of a constant</span></code></pre></div>
+<p>For PLs that do not support named constants, you can simulate them by using variables with a different naming convention. Here are some examples.</p>
 <pre><code>MAX_ROWS = 3; // rows in the TicTacToe board
 MAX_COLS = 3; // columns in the TicTacToe board
 
@@ -42,8 +82,8 @@ TUESDAY = 2;</code></pre>
 <p>The days of the week examples are okay as far as it goes. However, when there is a set of related constants like this, it’s even better to use an enumerated type if your PL supports it.</p>
 <p>An <strong>enumerated type</strong> is a new, custom data type defined by the programmer. It is “enumerated” because the type’s definition is simply to list all of the possible values. Typically, the PL implementation will simply assign sequential integers to the symbolic values, much like a sequence of named constants. But by saying that the values belong together as a distinct type of data, the programmer is telling the compiler or interpreter something about the meaning of the data. This is beginning to expand the concept of “data type” beyond just the underlying binary encoding. I want to delay further discussion of this expanded concept of data types until we finish the current chapter.</p>
 <h2 id="arrays">12.8 Arrays</h2>
-<p>This section is short and straightforward. You are already well-versed in array use from your previous experience with GML.</p>
-<p>You should know that there is one unusual thing about GML arrays: they are <strong>dynamic arrays</strong>, meaning that they automatically grow in size as needed. Most PLs have <strong>static arrays</strong>, requiring you to specify the size of an array when it is created. Often there is no way to increase the size of an array; this must be addressed by creating a second, larger array (requiring excessive memory resources, at least temporarily) and copying the values from the smaller old array to the larger new array, at considerable expense. (This discussion is common for the basic arrays included as fundamental data types. Many PLs that do not provide dynamic arrays as a fundamental type have libraries of utilities to provide equivalent functions.)</p>
+<p>This section is short and straightforward. You are already well-versed in array use from your previous experience with JavaScript.</p>
+<p>You should know that there is one unusual thing about JavaScript arrays: they are <strong>dynamic arrays</strong>, meaning that they automatically grow in size as needed. Most PLs have <strong>static arrays</strong>, requiring you to specify the size of an array when it is created. Often there is no way to increase the size of an array; this must be addressed by creating a second, larger array (requiring excessive memory resources, at least temporarily) and copying the values from the smaller old array to the larger new array, at considerable expense. (This discussion is common for the basic arrays included as fundamental data types. Many PLs that do not provide dynamic arrays as a fundamental type have libraries of utilities to provide equivalent functions.)</p>
 <h2 id="type-aliasing">12.9 Type Aliasing</h2>
 <p>Feel free to skip this section. If you do skim it, you will see more hints about the advantages of extending the concept “data type” beyond just the binary encoding.</p>
 </body>
