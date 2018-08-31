@@ -23,7 +23,7 @@ Because nearly every other chapter will introduce specific information that shou
 
 Skeptical? Take one small (but critical) example from the chapter we've already covered. On page 243 (and again in the end-of-chapter checklists) McConnell advises enabling all compiler warnings and paying attention to them.
 
-First, some background in case you are not familiar with the relevant details. Compilers (and other programming toolsets) can automatically find a variety of problems and potential problems in a program's source code. (This is called **static analysis** because it simply looks at the code without running it.) The details vary from one PL and one tool to another.
+First, some background in case you are not familiar with the relevant details. Compilers (and other programming toolsets) can automatically find a variety of problems and potential problems in a program's source code. You have seen this in c9, where the editor's margin shows messages from a code-checking tool called eslint. This process is called **static analysis** because it simply looks at the code without running it. The details vary from one PL and one tool to another.
 
 There is a strong cultural norm among programmers that many of these warnings are just noise to be ignored. (Generally, these would not be the great programmers.) As a result, the default behavior for many compilers is to show only some kinds of warnings and errors, and to suppress some of the warnings that could be detected. 
 
@@ -31,7 +31,7 @@ What's worse, many programmers change the default behavior *in the wrong directi
 
 Now, a real world professional example of the results. In February 2014, Apple announced and fixed an iOS flaw in the encryption underlying secure https Web transactions. For up to 18 months, iOS users had been vulnerable to having their (supposedly) secure transactions hijacked by hackers.
 
-The entire C source file is open source, available [here](http://opensource.apple.com/source/Security/Security-55471/libsecurity_ssl/lib/sslKeyExchange.c).
+The entire C source file is open source, available [here](http://opensource.apple.com/source/Security/Security-55471/libsecurity_ssl/lib/sslKeyExchange.c.auto.html).
 
 Here is a snippet that contains the problem.
 
