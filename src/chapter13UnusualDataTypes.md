@@ -10,7 +10,7 @@ In contrast, a **structure** is a data type that can contain multiple values of 
 
 Another common term for "structure" is **record**. A structure or record is similar to a row in a relational database (or a table of data), with the field names in the column labels and the values in the table cells.
 
-Structures or records can be described as an early, limited form of object-oriented concepts. GameMaker instances resemble structures in that each instance can contain multiple instance variables (fields) that are referred to by name. Each GM instance is a structure with fields for x coordinate, y coordinate, speed, etc.
+Structures or records can be described as an early, limited form of object-oriented concepts. JavaScript objects resemble structures in that each object can contain multiple variables (fields, members, properties) that are referred to by name. Each sgc `Sprite` object is a structure with fields for x coordinate, y coordinate, speed, etc.
 
 Here is a simple example, in C.
 
@@ -44,9 +44,9 @@ The code and examples in this section are most directly relevant to programming 
 
 You learned some about references and pointers in Chapter 10 when we covered persistence and dynamic memory allocation. Here is a recap.
 
-When GML scripts create a new instance by calling the `instance_create` function, the GM environment returns the instance ID for a newly created instance. This ID is simply an integer "serial number" that uniquely identifies the instance.
+When JavaScript code creates a new object using the `new` operator, the constructor returns a **reference** to a newly created object. This reference uniquely identifies the object.  A reference is a variable that, instead of storing a data value, allows indirect access to a data value.
 
-Many PLs contain similar concepts. GML instance IDs are one example of a **reference**: a variable that, instead of a data value, holds information that allows indirect access to a data value. In many PLs, the reference is not a "serial number" as in GML, but the numeric RAM address where the data is stored. This kind of reference is sometimes called a **pointer**. (Be aware that different PLs use these terms in somewhat different ways.)
+Many PLs contain similar concepts. In some PLs, references are implemented as a "serial numbers" or "object identifiers". A **pointer** is a special kind of reference that stores the numeric RAM address where the data value is stored. (Be aware that different PLs use these terms in somewhat different ways.)
 
 Pointers are low-level concepts that provide a great deal of power and flexibility, especially where pointer arithmetic is used. (Pointer arithmetic means performing calculations on memory addresses in order to navigate through memory.) Pointers can also be very dangerous if misused.
 
@@ -64,13 +64,3 @@ You might enjoy [Pointer Fun with Binky](https://youtu.be/6pmWojisM_E).
 ## 13.3 Global Data
 
 Use global variables only as a last resort. The concept of **access routines** described in this section is very important, and will re-appear in a number of other contexts.
-
-## Show and Tell
-
-Come to class prepared for show and tell on the following topics.
-
-- Your PL's support for structures or records. Also, your PL's support for object-oriented concepts, a related idea which we will explore later on.
-- Your PL's support for reference or pointer types.
-- Your PL's features related to global data and/or access routines.
-
-We will be exploring memory management and pointer issues in class using some C code that you will find in this chapter's homework folder in your repository.
