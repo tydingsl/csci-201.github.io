@@ -8,7 +8,7 @@ Most of this section is straightforward, but one concept may need some explanati
 
 A **namespace** is a set of names where no duplication is allowed. Here, we apply the concepts to names within programs, but the namespace concept appears in many computing contexts. For example, file system folders are namespaces because you cannot have duplicate filenames in the same folder. However, you can go to a different folder (namespace) and use the same filename again. Internet domains are namespaces: there can be multiple `jdoe` users at different domains, but only one `jdoe@dewv.net`.
 
-In general, a PL's scoping levels create namespaces for variables. A GML script is a namespace because you cannot have two identically named local variables in the same script. Like most PLs, GML has a global namespace, so it is possible to have a script local variable and a global variable that have the same name. Like other object-oriented languages, GML instances are namespaces; each instance can have its own variable of a particular name.
+In general, a PL's scoping levels create namespaces for variables. A JavaScript program is a namespace because you cannot have two identically named global variables. But it is possible to have a local variable and a global variable that have the same name. Like other object-oriented languages, JavaScript objects are namespaces; each object can have its own variable of a particular name.
 
 It's important to understand that variables are not the only names in programs. Depending on the PL, you will also give names to things such as scripts, sprites, objects, classes, functions, data types, and so on. The general term for names within a program is **identifier**.
 
@@ -22,7 +22,7 @@ Pretty straightforward, as long as you have gotten a handle on the various funda
 
 Many PLs are associated with one or more conventional ways of forming the names of identifiers.
 
-For example, GML generally follows a convention called **snake case**, where multi-word variable names are created by replacing spaces with underscores, and using all lower case letters, like this: `example_of_a_snake_case_variable_name`.
+Some PLs follow a convention called **snake case**, where multi-word variable names are created by replacing spaces with underscores, and using all lower case letters, like this: `example_of_a_snake_case_variable_name`.
 
 Another major category of naming convention is called **camel case**, which is like this: `exampleOfACamelCaseVariableName`. There are other conventions, and variations, too.
 
