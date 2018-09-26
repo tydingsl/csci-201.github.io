@@ -56,35 +56,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>If you use these, use them well. Consider not using them at all, since they add nothing to the power of <code>if</code>/<code>else</code>. (This reminds me of the philosophical debate between <a href="http://c2.com/cgi/wiki?ThereIsMoreThanOneWayToDoIt">Perl</a> and <a href="http://c2.com/cgi/wiki?PythonPhilosophy">Python</a> (see item number 11 under this link).)</p>
 <h2 id="boolean-expressions">19.1 Boolean Expressions</h2>
 <p>There is lots of good advice in this section. In your programming work, you are expected to follow these guidelines to the greatest extent prudent.</p>
-<h3 id="gmls-handling-of-boolean-expressions">GML’s handling of Boolean expressions</h3>
-<p>This is an area where GML differs from most other C-like languages. GML was designed to be more forgiving to beginners, which can be an advantage. However, it allows you to form some habits that you will need to break in order to work with similar PLs. Consider the following code.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span>
-
-<span class="cf">if</span> (x <span class="op">=</span> <span class="dv">6</span>)
-<span class="op">{</span>
-    result <span class="op">=</span> <span class="st">&quot;x is equal to 6&quot;</span><span class="op">;</span>
-<span class="op">}</span>
-<span class="cf">else</span>
-<span class="op">{</span>
-    result <span class="op">=</span> <span class="st">&quot;x is not equal to 6&quot;</span><span class="op">;</span>
-<span class="op">}</span></code></pre></div>
-<p>This code is valid (or very nearly valid) in GML, JavaScript, Java, C++, C and other similar languages. But it will behave differently in GML than in most of the other PLs.</p>
-<p>In GML, the <code>if</code> statement’s Boolean expression compares the values of <code>x</code> and <code>6</code> to see if they are equal; they are not, so the <code>else</code> block is executed and the result indicates that <code>x</code> is not equal to <code>6</code>.</p>
-<p>In most similar PLs, however, the Boolean expression is interpreted differently because the single equals sign is always an assignment operation. You must use the double equals sign to compare for equality. In C, the expression in parentheses changes the value of <code>x</code> by assigning <code>6</code>. The value of that expression is then <code>6</code>. Since C considers any non-zero value to be true, the <code>if</code> block is executed and the result indicates that <code>x</code> is equal to <code>6</code>. Most similar PLs will behave in similar ways, though they are more likely to give a compiler error or warning about the assignment appearing where a Boolean value is expected.</p>
-<p>Bottom line: GML allows you to use either <code>=</code> or <code>==</code> for equality comparison, but in most similar PLs these mean different things, and you must say what you mean.</p>
 <p>This is as good a place as any to describe JavaScript’s set of comparison operators, which allow the programmer to opt for type coercion or type checking. In JavaScript, the expression <code>5 == '5'</code> will evaluate to <code>true</code>, but <code>5 === '5'</code> will evaluate to <code>false</code>. The double equals operator (and its inverse, <code>!=</code>) perform type coercion before comparing, but the triple equals operator (and its inverse, <code>!==</code>) do not.</p>
-<p>Another minor difference between GML and similar PLs is that the parentheses around the Boolean expression for GML’s <code>if</code> are optional; you could remove them without any problem. Most similar PLs require that an <code>if</code> statement use parentheses around the Boolean expression.</p>
+<p>You should know the comparison operators in your PL, and how they work. Be especially careful with comparisons of objects. There is a difference between equivalence– two distinct objects with identical data contents– and identity– two references to the same object.</p>
 <h3 id="short-circuit-evaluation">Short-circuit evaluation</h3>
 <p>No matter which PL you are using, it is critical that you understand whether and when your PL short circuits the evaluation of Boolean expressions. Consider this code.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="cf">if</span> (points_possible <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> points_earned / points_possible <span class="op">&gt;=</span> <span class="fl">0.60</span>)
-<span class="op">{</span>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="cf">if</span> (points_possible <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> points_earned / points_possible <span class="op">&gt;=</span> <span class="fl">0.60</span>) <span class="op">{</span>
    result <span class="op">=</span> <span class="st">&quot;You pass.&quot;</span><span class="op">;</span>
-<span class="op">}</span>
-<span class="cf">else</span>
-<span class="op">{</span>
+<span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
    result <span class="op">=</span> <span class="st">&quot;You fail.&quot;</span><span class="op">;</span>
 <span class="op">}</span></code></pre></div>
-<p>Now imagine that points_possible has a value of zero. What happens?</p>
+<p>Now imagine that <code>points_possible</code> has a value of zero. What happens?</p>
 <p>Some PLs will produce an error message (possibly at compile time, possibly at run time) because the code attempts to divide by zero, which is an undefined mathematical operation. This behavior proves that these PLs do not “short circuit” when evaluating the Boolean expression.</p>
 <p>Other PLs will run without error, and the result will indicate that the student failed. This behavior proves that these PLs “short circuit” when evaluating the Boolean expression.</p>
 <p>To be clear, short circuiting has nothing to do with division by zero. This is just one scenario where a programmer might take advantage of short circuiting behavior.</p>
@@ -150,6 +131,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>Look back to the code example above. A PL that does not short circuit will evaluate the expression <code>points_possible &gt; 0</code>, which is false in our scenario. It will then evaluate the expression <code>points_earned / points_possible &gt; 0</code>, which produces an error for division by zero.</p>
 <p>In contrast, a PL that short circuits will evaluate the expression <code>points_possible &gt; 0</code>, which is false in our scenario. It will not evaluate the second expression; it doesn’t need to because the overall result must be false. As a result, no division by zero is attempted, and the <code>else</code> block is executed.</p>
-<p>A few PLs have multiple versions of <code>AND</code> and <code>OR</code> operators, with some that short circuit and some that do not. GameMaker Studio allows you to choose which behavior you want with a global game setting.</p>
+<p>A few PLs have multiple versions of <code>AND</code> and <code>OR</code> operators, with some that short circuit and some that do not.</p>
 </body>
 </html>

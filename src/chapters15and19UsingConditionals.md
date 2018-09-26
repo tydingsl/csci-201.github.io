@@ -18,51 +18,23 @@ If you use these, use them well. Consider not using them at all, since they add 
 
 There is lots of good advice in this section. In your programming work, you are expected to follow these guidelines to the greatest extent prudent.
 
-### GML's handling of Boolean expressions
+This is as good a place as any to describe JavaScript's set of comparison operators, which allow the programmer to opt for type coercion or type checking. In JavaScript, the expression `5 == '5'` will evaluate to `true`, but `5 === '5'` will evaluate to `false`.  The double equals operator (and its inverse, `!=`) perform type coercion before comparing, but the triple equals operator (and its inverse, `!==`) do not. 
 
-This is an area where GML differs from most other C-like languages. GML was designed to be more forgiving to beginners, which can be an advantage. However, it allows you to form some habits that you will need to break in order to work with similar PLs. Consider the following code.
-
-```javascript
-x = 5;
-
-if (x = 6)
-{
-    result = "x is equal to 6";
-}
-else
-{
-    result = "x is not equal to 6";
-}
-```
-
-This code is valid (or very nearly valid) in GML, JavaScript, Java, C++, C and other similar languages. But it will behave differently in GML than in most of the other PLs.
-
-In GML, the `if` statement's Boolean expression compares the values of `x` and `6` to see if they are equal; they are not, so the `else` block is executed and the result indicates that `x` is not equal to `6`.
-
-In most similar PLs, however, the Boolean expression is interpreted differently because the single equals sign is always an assignment operation. You must use the double equals sign to compare for equality. In C, the expression in parentheses changes the value of `x` by assigning `6`. The value of that expression is then `6`. Since C considers any non-zero value to be true, the `if` block is executed and the result indicates that `x` is equal to `6`. Most similar PLs will behave in similar ways, though they are more likely to give a compiler error or warning about the assignment appearing where a Boolean value is expected.
-
-Bottom line: GML allows you to use either `=` or `==` for equality comparison, but in most similar PLs these mean different things, and you must say what you mean.
-
-This is as good a place as any to describe JavaScript's set of comparison operators, which allow the programmer to opt for type coercion or type checking. In JavaScript, the expression `5 == '5'` will evaluate to `true`, but `5 === '5'` will evaluate to `false`.  The double equals operator (and its inverse, `!=`) perform type coercion before comparing, but the triple equals operator (and its inverse, `!==`) do not.
-
-Another minor difference between GML and similar PLs is that the parentheses around the Boolean expression for GML's `if` are optional; you could remove them without any problem. Most similar PLs require that an `if` statement use parentheses around the Boolean expression.
+You should know the comparison operators in your PL, and how they work. Be especially careful with comparisons of objects. There is a difference between equivalence-- two distinct objects with identical data contents-- and identity-- two references to the same object.
 
 ### Short-circuit evaluation
 
 No matter which PL you are using, it is critical that you understand whether and when your PL short circuits the evaluation of Boolean expressions. Consider this code.
 
 ```javascript
-if (points_possible > 0 && points_earned / points_possible >= 0.60)
-{
+if (points_possible > 0 && points_earned / points_possible >= 0.60) {
    result = "You pass.";
-}
-else
-{
+} else {
    result = "You fail.";
 }
 ```
 
-Now imagine that points_possible has a value of zero. What happens?
+Now imagine that `points_possible` has a value of zero. What happens?
 
 Some PLs will produce an error message (possibly at compile time, possibly at run time) because the code attempts to divide by zero, which is an undefined mathematical operation. This behavior proves that these PLs do not "short circuit" when evaluating the Boolean expression.
 
@@ -93,4 +65,4 @@ Look back to the code example above. A PL that does not short circuit will evalu
 
 In contrast, a PL that short circuits will evaluate the expression `points_possible > 0`, which is false in our scenario. It will not evaluate the second expression; it doesn't need to because the overall result must be false. As a result, no division by zero is attempted, and the `else` block is executed.
 
-A few PLs have multiple versions of `AND` and `OR` operators, with some that short circuit and some that do not. GameMaker Studio allows you to choose which behavior you want with a global game setting.
+A few PLs have multiple versions of `AND` and `OR` operators, with some that short circuit and some that do not. 
