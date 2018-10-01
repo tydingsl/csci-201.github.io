@@ -12,12 +12,9 @@ If not, look at the sidebar quote on page 735. Speaking as an experienced progra
 
 That was the carrot; now for the stick. You are expected to apply good layout and style to your programming work.
 
-## 31.2-31.7 Specific Layout Guidelines
+## 31.2-31.8 Specific Layout Guidelines
 
 There is a lot of material here, and most of it is very valuable. To master this, you will need to return to it, re-read, and think about your programming work.
 
 Again, McConnell is spelling out some of what it takes to be the 10x great programmer, and this kind of attention to detail is important in many other pursuits as well. What you choose to do with this is a matter of your personal character.
 
-## 31.8 Laying Out Classes
-
-At this point, you may not be familiar with the concept of a class. We will cover this as part of our study of object-oriented concepts. For now, just skim this section, knowing that a class is similar to a GML object that contains routines (code) as well as data (variables).
