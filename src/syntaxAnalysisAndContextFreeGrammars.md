@@ -25,9 +25,9 @@ We need a more powerful formalism to capture this complexity. Once again, we can
 
 ## Meta-machine perspective: Push down automata
 
-The problem with a DFA is that it has no memory. It can change state based only on its current state and the remaining input. It has no information about how it got to its current state, or what input it processed to get there. Its behavior cannot be affected by anything in the past.
+The problem with a finite automaton is that it has no memory. It can change state based only on its current state and the remaining input. It has no information about how it got to its current state, or what input it processed to get there. Its behavior cannot be affected by anything in the past.
 
-A **pushdown automaton** (PDA) is simply a DFA with the addition of a stack for memory. Here is a JFLAP model of a PDA that accepts the language in question.
+A **pushdown automaton** (PDA) is simply a finite automaton with the addition of a stack for memory. Here is a JFLAP model of a PDA that accepts the language in question.
 
 ![A pushdown automaton](images/PDA.png)
 
