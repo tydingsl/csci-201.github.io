@@ -1,6 +1,6 @@
 # Chapters 16, 19: Controlling Loops
 
-Read *Code Complete* Chapter 16, plus sections 19.3-19.6.
+Read *Code Complete* Chapter 16, plus sections 19.3-19.6 and portions of 22.3 (see below).
 
 ## 16.1 Selecting the Kind of Loop
 
@@ -15,7 +15,7 @@ Study the following alternative terminology. It is more precise and also more wi
 
 **Iteration** refers to repetition driven by a loop.
 
-Carefully study the C++ example at the bottom of page 369, and the improved version on the following page. (GML and C++ both belong to the C-like family of languages, so you should be able to follow the logic flow.) The "before" code uses a practice that some authors call "loop and a half"; the repeated code is like a half pass through the loop before the loop starts. Some authors even teach this technique to beginning programmers, but I agree with McConnell that it should be avoided.
+Carefully study the C++ example at the bottom of page 369, and the improved version on the following page. (JavaScript and C++ both belong to the C-like family of languages, so you should be able to follow the logic flow.) The "before" code uses a practice that some authors call "loop and a half"; the repeated code is like a half pass through the loop before the loop starts. Some authors even teach this technique to beginning programmers, but I agree with McConnell that it should be avoided.
 
 ## 16.3 Creating Loops from the Inside Out
 
@@ -36,3 +36,11 @@ If you do need to write an empty loop, be sure that you use one of the technique
 Many students reach a stage where they try to use one long routine to solve programming problems that are too big for that approach. This often involves deep nesting and repetitive blocks of code.
 
 To the greatest extent prudent, you should follow the guidelines here in your programming. One of the best ways to reduce nesting, complexity, and redundancy is to break up the code into a larger number of routines. We will see more on that topic soon.
+
+Pay special attention to McCabe's complexity metric (p. 458), commonly known as "cyclomatic complexity". There is a clear link between this measurement and structured basis testing.
+
+## 22.3 Structured Basis Testing, Boundary Analysis
+
+You do not have to read all of 22.3; just the subsections on Structured Basis Testing (pp. 505-508) and Boundary Analysis (pp. 513-514).
+
+You should apply these testing techniques to your formal programming assignments.

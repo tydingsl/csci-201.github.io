@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 id="chapters-16-19-controlling-loops">Chapters 16, 19: Controlling Loops</h1>
-<p>Read <em>Code Complete</em> Chapter 16, plus sections 19.3-19.6.</p>
+<p>Read <em>Code Complete</em> Chapter 16, plus sections 19.3-19.6 and portions of 22.3 (see below).</p>
 <h2 id="selecting-the-kind-of-loop">16.1 Selecting the Kind of Loop</h2>
 <p>Study the following alternative terminology. It is more precise and also more widely used.</p>
 <table>
@@ -40,7 +40,7 @@
 </tbody>
 </table>
 <p><strong>Iteration</strong> refers to repetition driven by a loop.</p>
-<p>Carefully study the C++ example at the bottom of page 369, and the improved version on the following page. (GML and C++ both belong to the C-like family of languages, so you should be able to follow the logic flow.) The “before” code uses a practice that some authors call “loop and a half”; the repeated code is like a half pass through the loop before the loop starts. Some authors even teach this technique to beginning programmers, but I agree with McConnell that it should be avoided.</p>
+<p>Carefully study the C++ example at the bottom of page 369, and the improved version on the following page. (JavaScript and C++ both belong to the C-like family of languages, so you should be able to follow the logic flow.) The “before” code uses a practice that some authors call “loop and a half”; the repeated code is like a half pass through the loop before the loop starts. Some authors even teach this technique to beginning programmers, but I agree with McConnell that it should be avoided.</p>
 <h2 id="creating-loops-from-the-inside-out">16.3 Creating Loops from the Inside Out</h2>
 <p>Many less experienced programmers feel stuck when starting a complex programming task. This section gives a specific example of applying some more general rules:</p>
 <ol>
@@ -54,5 +54,9 @@
 <h2 id="deep-nesting-complexity">19.4, 19.6 Deep Nesting, Complexity</h2>
 <p>Many students reach a stage where they try to use one long routine to solve programming problems that are too big for that approach. This often involves deep nesting and repetitive blocks of code.</p>
 <p>To the greatest extent prudent, you should follow the guidelines here in your programming. One of the best ways to reduce nesting, complexity, and redundancy is to break up the code into a larger number of routines. We will see more on that topic soon.</p>
+<p>Pay special attention to McCabe’s complexity metric (p. 458), commonly known as “cyclomatic complexity”. There is a clear link between this measurement and structured basis testing.</p>
+<h2 id="structured-basis-testing-boundary-analysis">22.3 Structured Basis Testing, Boundary Analysis</h2>
+<p>You do not have to read all of 22.3; just the subsections on Structured Basis Testing (pp. 505-508) and Boundary Analysis (pp. 513-514).</p>
+<p>You should apply these testing techniques to your formal programming assignments.</p>
 </body>
 </html>
