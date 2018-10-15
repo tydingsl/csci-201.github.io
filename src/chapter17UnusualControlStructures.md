@@ -4,7 +4,9 @@ Read Chapter 17 of *Code Complete*.
 
 ## 17.1 Multiple Returns from a Routine
 
-Like other PLs in the C family, GML uses the keyword `return` for functions (routines that return a value to the caller). Unlike other C family languages, GML does not allow a "bare" return; it uses the `exit` keyword instead.
+Like other PLs in the C family, JavaScript uses the keyword `return` for functions. 
+
+Some PLs use different syntax for "functions" (routines that return a value to the caller), as opposed to "procedures" (routines that do not return a value). The JavaScript language definition says that functions that complete without an explicit `return` statement will return `undefined` by default.
 
 ## 17.2 Recursion
 
@@ -50,17 +52,17 @@ As a result, I would modify McConnell's guidance on recursion by asking programm
 
 Finally, factorials and Fibonacci numbers are "silly" examples in a way that McConnell did not seem to have in mind. Both of these can be calculated by plugging values directly into appropriate formulas. Neither recursion nor iteration are actually required.
 
-## 17.3 `goto`
+## 17.3 `goto` and Exception Handling
 
 The `goto` (or `jump`) statement was created at a time that `if`/`else` and loop constructs did not exist. If you think about it, you will see that conditional statements and loop constructs are simply well-formed patterns of jumping forward or backward over sequential instructions. (See the discussion of Structured Programming in section 19.5). Since modern PLs provide structured ways of doing these important things, most other uses of `goto` are harmful and should be avoided.
 
 The major exception to this rule, as McConnell points out, is in error handling. When a program is handling an error situation, it is by definition departing from the "normal" flow of logic and control. It's not surprising that this creates a need to jump out of sequential code in a way that is different from the "normal" control structures of conditional statements and loops.
 
-Some PLs provide **exception handling**, another kind of control structure that is used in error (or exceptional) situations. This is the concept that McConnell calls "try-finally". In the code example on page 404, the "Try" block sets up exception (error) handling for the code that it contains. If the statements in the Try block execute without problems, the statement under "Finally" will run in order to perform some necessary cleanup. However, if there is an error in executing any of the statements inside the Try block, the PL will jump to the cleanup statement under Finally. In other words, the PL guarantees that the cleanup statement under Finally will always run, even when an error occurs.
+Some PLs provide **exception handling**, another kind of control structure that is used in error (or exceptional) situations. This is the concept that McConnell calls "try-finally". In the code example on page 405, the `Try` block sets up exception (error) handling for the code that it contains. If the statements in the `Try` block execute without problems, the statement under `Finally` will run in order to perform some necessary cleanup. However, if there is an error in executing any of the statements inside the `Try` block, the PL will jump to the cleanup statement under `Finally`. In other words, the PL guarantees that the cleanup statement under `Finally` will always run, even when an error occurs. You can easily [play with JavaScript's exception handling](https://www.w3schools.com/js/tryit.asp?filename=tryjs_finally_error) features online.
 
-Unfortunately, many PLs (especially C++ and Java) made their exception handling features too powerful (in my opinion). There is too little restriction on the jumping, so that some very confusing control flows can be created. These features are all right if they are used in limited ways.
+Unfortunately, many PLs (especially C++ and Java) made their exception handling features too powerful (in my opinion). There is too little restriction on the jumping, so that some very confusing control flows can be created. We will look at an example of this in class. These features are all right if they are used in limited ways.
 
-Some PLs have no equivalent of `goto`. GML falls into this category. Since GML also does not provide any exception handling mechanism, it can be very awkward to write good error handling code in GML. I found this frustrating when working on test framework code in GML, which naturally does a lot of checking for error conditions.
+Some PLs have no equivalent of `goto`. JavaScript provides only a limited form of `goto`, but it can create some [confusing control patterns](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label#Using_a_labeled_continue_statement).
 
 ------
 
