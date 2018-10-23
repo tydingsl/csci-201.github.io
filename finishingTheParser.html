@@ -15,20 +15,44 @@
 <p>Here is the BNF grammar for our source language. (Recall that “source language” refers to the language being implemented.)</p>
 <pre><code>&lt;program&gt; ::= start &lt;statement&gt;* end
 &lt;statement&gt; ::= &lt;assignment_statement&gt; | &lt;output_statement&gt;
-&lt;assignment_statement&gt; ::= IDENTIFIER = &lt;expression&gt;
+&lt;assignment_statement&gt; ::= &lt;identifier&gt; = &lt;expression&gt;
 &lt;output_statement&gt; ::= print ( &lt;expression&gt; )
-&lt;expression&gt; ::= IDENTIFIER | NUMERIC
-</code></pre>
-<p>To summarize, a program consists of the reserved word <code>start</code>, followed by a set of zero or more statements, followed by the reserved word <code>end</code>. Each statement is either an assignment statement or an output statement. There are grammar rules for both types of statement; the rules refer to terminal symbols (such as <code>print</code>), a nonterminal symbol (<code>&lt;expression&gt;</code>) and two specific tokens (<code>IDENTIFIER</code>, <code>NUMERIC</code>) that were defined in lexical analysis.</p>
+&lt;expression&gt; ::= &lt;identifier&gt; | &lt;number&gt;
+&lt;identifier&gt; ::= /[a-zA-Z]+[a-zA-Z0-9_]*/
+&lt;number&gt; ::= /[0-9]+/</code></pre>
+<p>To summarize, a program consists of the reserved word <code>start</code>, followed by a set of zero or more statements, followed by the reserved word <code>end</code>. Each statement is either an assignment statement or an output statement. There are grammar rules for both types of statement; the rules refer to terminal symbols (such as <code>print</code>), a nonterminal symbol (<code>&lt;expression&gt;</code>) and two specific tokens that are defined by regular expressions.</p>
 <h2 id="parsing-the-grammar">Parsing the Grammar</h2>
-<p>The general approach is to use your implementation language to define an abstract data type (ADT) for each of the nonterminal symbols in the grammar of the source language.</p>
-<p>For example, the GML implementation of this grammar defines the objects <code>obj_program</code>, <code>obj_assignment_statement</code>, and <code>obj_output_statement</code>; each corresponds to one of the grammar’s nonterminal symbols.</p>
-<p>There is also a parse routine for each nonterminal– scripts named <code>parse_program</code>, <code>parse_assignment_statement</code>, etc. Each of these compares the sequence of lexemes (built earlier) with the expectations of the grammar rule. For example, the <code>parse_program</code> script verifies that the first lexeme has the token <code>START</code>. It then uses a loop to repeatedly call the <code>parse_statement</code> routine. When all these have completed, <code>parse_program</code> finishes by verifying that the last lexeme has the token <code>END</code>.</p>
-<p>Each parse routine follows this general pattern for verifying its grammar rule: directly check tokens for the terminal symbols in the rule, and call other parse routines to delegate the verification of nonterminal symbols in the rule. As this parsing is carried out, a tree is built to represent the structure of the input program. For example, the single instance of <code>obj_program</code> is the root of the tree; it contains an array of statement instances (<code>obj_assignment_statement</code> or <code>obj_output_statement</code>). Each statement instance stores information about its grammatical components. For example, each instance of <code>obj_assignment_statement</code> will store the identifier that appears on the left hand side of the statement, and the expression that appears on the right hand side.</p>
+<p>The general approach is to use our implementation language to define an abstract data type (ADT) for each of the nonterminal symbols in the grammar of the source language.</p>
+<p>For example, <a href="https://smattingly.github.io/language-implementation/">this Web form</a> defines the classes <code>Program</code>, <code>AssignmentStatement</code>, and <code>OutputStatement</code> (among others); each corresponds to one of the grammar’s nonterminal symbols.</p>
+<p>There is also a parsing method for each nonterminal– functions named <code>Program.parse</code>, <code>AssignmentStatement.parse</code>, etc. Each of these compares the sequence of lexemes (built earlier) with the expectations of the grammar rule. For example, <code>Program.parse</code> verifies that the first lexeme has the token <code>start</code>. It then uses a loop to repeatedly call the <code>Statement.parse</code> method. When all these have completed, <code>Program.parse</code> finishes by verifying that the last lexeme has the token <code>end</code>.</p>
+<p>Each parse routine follows this general pattern for verifying its grammar rule: directly check tokens for the terminal symbols in the rule, and call other class’s parse routines to delegate the verification of nonterminal symbols in the rule. As this parsing is carried out, a tree is built to represent the structure of the input program. For example, the single object of class <code>Program</code> is the root of the tree; it contains an array of statement objects (class <code>AssignmentStatement</code> or class <code>OutputStatement</code>). Each statement object stores information about its grammatical components. For example, each object of class <code>AssignmentStatement</code> will store the identifier that appears on the left hand side of the statement, and the expression that appears on the right hand side.</p>
 <p>When the process completes without error, the parser will display a textual representation of the parse tree. Here, for example, is the parse tree that represents a familiar program with three statements (between <code>begin</code> and <code>end</code>).</p>
-<p><img src="images/parsetreetext.png" alt="A parse tree" /></p>
+<pre><code>&lt;program&gt;
+    start
+    &lt;assignment_statement&gt;
+        a
+        =
+        &lt;expression&gt;
+            &lt;number&gt;
+                1
+    &lt;assignment_statement&gt;
+        b
+        =
+        &lt;expression&gt;
+            &lt;identifier&gt;
+                a
+    &lt;output_statement&gt;
+        print
+        (
+        &lt;expression&gt;
+            &lt;identifier&gt;
+                b
+        )
+    end
+</code></pre>
+<p>This tree is arranged something like the file trees in graphical user interfaces: the root node for the program appears first, and its five children are indented on tab stop under it. Their children are indented two tab stops, and so on. Remember that each leaf is a terminal symbol, and each non-leaf is a non-terminal.</p>
 <p>If the parsing routines encounter a lexeme that does not fit the grammar rules, then the parsing process will terminate with an error. Generally, it is possible to display a message indicating what was expected (according to the grammar rule) and what was actually found (in the lexemes of the source input). In the simplest possible example, the parser will complain that <code>start</code> was expected if the first lexeme is anything other than that reserved word.</p>
 <hr />
-<p>Note. Textbook presentations of tree data structures are usually very abstract, modelling general trees as nodes (vertices) and edges (links or connections). In specific scenarios like parsing, it is often useful to model tree-like relationships in a different, less abstract way. For example, the GML parsing code does not explicitly deal with nodes or edges. Instead, the program object (the tree root) contains an array of statement objects (its children). An assignment statement always has three children: a left-hand-side (<code>lhs</code>), an assignment operator, and a right-hand-side (<code>rhs</code>). The GML object stores the <code>lhs</code> identifier and the <code>rhs</code> expression in normal instance variables. There is no need to store the assignment operator, because the object “knows” that it is an assignment.</p>
+<p>Note. Textbook presentations of tree data structures are usually very abstract, modelling general trees as nodes (vertices) and edges (links or connections). In specific scenarios like parsing, it is often useful to model tree-like relationships in a different, less abstract way. For example, the form’s JavaScript parsing code does not explicitly deal with nodes or edges. Instead, the <code>Program</code> object (the tree root) contains an array of statement objects (its children). An assignment statement always has three children: a left-hand-side (<code>lhs</code>), an assignment operator, and a right-hand-side (<code>rhs</code>). The JavaScript object stores the <code>lhs</code> identifier and the <code>rhs</code> expression in normal instance variables. There is no need to store the assignment operator, because the object “knows” that it is an assignment.</p>
 </body>
 </html>
