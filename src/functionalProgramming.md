@@ -8,7 +8,7 @@ The control structures of procedural PLs are based on the familiar idea of seque
 
 Procedures allow you to modularize larger programs by creating named routines that are, in effect, new instructions in the language. Some procedures, like mathematical functions, take arguments and return values. Other procedures return no value, but are called for their **side effects**: the changes that they make to the current state of the program/machine. Smart, disciplined programmers organize their procedural programs around the concept of abstract data types.
 
-The object-oriented paradigm expands the procedural paradigm by adding features that support a particular approach to implementing ADTs. An instance (or object) is a container for both the data and the procedures (or methods) that make up an ADT.
+The object-oriented paradigm expands the procedural paradigm by adding features that support a particular approach to implementing ADTs. An object is a container for both the data and the procedures (or methods) that make up an ADT.
 
 It's now time to look at a third paradigm. Functional programming ignores or even eliminates the machine-oriented concepts of sequential instructions, current state, and side effects. In its purest form, functional programming consists only of applying functions in the mathematical sense: given certain arguments, a function will always compute the same result. The inputs alone determine that result; there is no influence from any outside information or program state.
 
@@ -134,6 +134,12 @@ The `getprop` function takes two arguments: a property name, and a property list
 
 ![Lisp getprop calls](images/lispgetpropcalls.png)
 
-------
+## Multi-paradigm languages
+
+In the past, the only real way to explore less common paradigms like functional programming was to learn a relatively "pure" example of the paradigm, like Lisp.
+
+But PLs created more recently tend to borrow ideas from multiple paradigms. JavaScript is a strong example of this. In addition to procedural and object-oriented features, [JavaScript also supports a functional approach](https://via.hypothes.is/https://www.sitepoint.com/introduction-functional-javascript/) to problem solving. (The preceding link includes commentary that I posted using a Web annotation tool called [hypothes.is](https://web.hypothes.is/).)
+
+
 
 [*](#ref) ![Anchor](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)Be aware that different dialects of Lisp use different symbols, so some translation is necessary. Although we are technically working with a Lisp dialect named Scheme, I will use the name "Lisp" throughout. Scheme and "Common LISP" are probably the two most popular dialects. A descendant of Scheme called Racket provides some excellent educational resources.
