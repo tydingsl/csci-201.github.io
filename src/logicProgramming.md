@@ -35,6 +35,8 @@ based on the closed world assumption.
 
 GNU Prolog and SWI Prolog are two popular and free Prolog interpreters that you can install locally. However, we will use [SWISH](http://swish.swi-prolog.org/) for a few quick Prolog samples. This eliminates the need to install any software.
 
+On the landing page, click the options to create a **Program** based on an **Empty** profile.
+
 The SWISH Prolog screen has an input area on the left and query and output areas on the right. 
 
 ![Prolog family tree](images/family.pl.png)
