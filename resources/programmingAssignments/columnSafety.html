@@ -1,0 +1,170 @@
+<style type="text/css">
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+--></style>
+<div class="WordSection1">
+	<h1>
+		Column Safety</h1>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">(Adapted from <i>Introduction to Programming with Java: A Problem-Solving Approach</i>, Dean and Dean, McGraw-Hill.)</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In designing a building, structural engineers must determine whether each of the building&rsquo;s support columns is thick enough to support the column&rsquo;s expected load. Assume the column is wooden and has a solid square cross section. To be safe, all three of these conditions must be met:</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal">
+		<span style="font-family:Symbol">&middot;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The column should be sufficiently thick, that is: </span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">height / width &le; 50, where 50 is a special value called the <i>slenderness limit</i>,</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal">
+		<span style="font-family:Symbol">&middot;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">To prevent the column from buckling, make sure this requirement is met:</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">expected load &le; </span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">(0.3*E*area) / (height/width)<sup>2</sup>,</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">where E = 1,700,000 psi is a special value called the <i>modulus of elasticity</i>.</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal">
+		<span style="font-family:Symbol">&middot;<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">To prevent the column from compressing, make sure this requirement is met:</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">expected load &le; </span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">area * stress,</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">where <i>stress</i> = 1450 psi = maximum allowable stress parallel to the grain.</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">In the above formulas,</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">height is the height of the column in inches,</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">width is the width of the beam in inches, and</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">area = cross-sectional area = width * width.</span></p>
+	<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Write a program that determines whether a wooden column with a given height is thick enough to support a given expected load. More specifically, read in height, width, and expected load values and then print &ldquo;The column is safe.&rdquo; or &ldquo;The column is unsafe.&rdquo; Use named constants for slenderness limit, modulus of elasticity, and maximum stress. In the sample sessions, note that the user enters height in units of feet, whereas the formulas require height in units of inches.</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Sample session</span></u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">:</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">Enter column width in inches: <i>4.0</i></span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">Enter column height in feet: <i>15.0</i></span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">Enter expected load in pounds: <i>5000.0</i></span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">The column is unsafe.</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Another sample session</span></u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">:</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">Enter column width in inches: <i>5</i></span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">Enter column height in feet: <i>15</i></span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">Enter expected load in pounds: <i>5000</i></span></p>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Courier New&quot;;letter-spacing:-.15pt">The column is safe.</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		&nbsp;</p>
+</div>

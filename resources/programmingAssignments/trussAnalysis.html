@@ -1,0 +1,424 @@
+<style type="text/css"><!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<div class="WordSection1">
+<div style="border:none;border-bottom:solid #4F81BD 1.0pt;padding:0in 0in 4.0pt 0in">
+<h1>Truss Analysis</h1>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;letter-spacing:-.15pt">(Adapted from <i>Introduction to Programming with Java: A Problem-Solving Approach</i>, Dean and Dean, McGraw-Hill.)</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">A good way to support weight on a bridge is to use a truss structure, shown below. For simplicity, we discuss the situation as though there were just one truss. Actually, of course, there are two &ndash; one on either side of the road. The loadings we use apply to the whole bridge, so when we conclude that a particular member has a certain load, that load is actually carried by two identical members &ndash; one on either side of the road.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><img src="truss.png" style="width: 491px; height: 210px;" /></span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The solid lines are steel members, and the white arrows are forces. The large up arrow (labeled P) below each end is the pier force, </span><span style="font-family:&quot;Courier New&quot;">pierForce</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">, that supports one end of the bridge. The large down arrow in the center (labeled L) is the weight of a load halfway across the bridge, </span><span style="font-family:&quot;Courier New&quot;">centerLoad</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">. Each medium-sized down arrow across the bottom represents the weight of the road and bottom structural members in one of the four sections of the bridge, </span><span style="font-family:&quot;Courier New&quot;">roadWeight</span><span style="font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;">. Each small arrow represents the weight of an above-road structural member, </span><span style="font-family:&quot;Courier New&quot;">structuralWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Each junction is identified by a bold capital letter (A, B, C, D, E, F, G, H, I), and each structural member is identified by a unique pair of these letters. The small lower-case letters in the figure indicate whether a particular steel member is in tension (t) or compression (c). All the bottom (road-level) members are in tension, all the top members are in compression (negative tension), and the diagonal members alternate between tension (insides) and compression (outsides). </span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Since the bridge is stationary, there is no acceleration, and we can analyze it by noting that at each junction, the total force upward must equal zero, and the total force to the right must equal zero. The problem is symmetrical, so it&rsquo;s sufficient to analyze half of the bridge. Let&rsquo;s start with vertical forces and go from junction E back to junction A.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The vertical force exerted by diagonal DE on junction E is</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnEbyDE &larr; centerLoad/2 + roadWeight/2</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The </span><span style="font-family:&quot;Courier New&quot;">centerLoad</span><span style="font-family:
+&quot;Times New Roman&quot;,&quot;serif&quot;"> is divided by 2 because this load is shared by DE and EF. The </span><span style="font-family:&quot;Courier New&quot;">roadWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> is divided by 2 because half the weight of CE is carried by BC. DE is in tension, so its vertical force on junction E is upward and the sign of this force is positive.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The vertical force exerted by diagonal DE on junction D is</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnDbyDE<sub> </sub>&larr; -upForceOnEbyDE<sub>&nbsp; </sub>&ndash; structuralWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The negative signs indicate a reversed and downward force direction, respectively. The </span><span style="font-family:&quot;Courier New&quot;">structuralWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> term accounts for DE&rsquo;s own weight.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The vertical force exerted by the diagonal CD on junction D is</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnDbyCD &larr; -upForceOnDbyDE + structuralWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">CD is in compression, so its vertical force on junction D is upward. The </span><span style="font-family:
+&quot;Courier New&quot;">structuralWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> is half the weight of DF plus half the weight of BD. </span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Continuing in this fashion, we also have:</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnCbyCD &larr; -upForceOnDbyCD &ndash; structuralWeight;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnCbyBC &larr; -upForceOnCbyCD + roadWeight;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnBbyBC &larr; -upForceOnCbyBC &ndash; structuralWeight;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnBbyAB &larr; -upForceOnBbyBC + structuralWeight/2;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">upForceOnAbyAB &larr; -upForceOnBbyAB - structuralWeight;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">pierForce &larr; -upForceOnAbyAB + roadWeight/2</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Because AB is sloping, its compressive force pushes down not only on junction A. It also pushes to the left, and this leftward horizontal force is exactly balanced by a rightward horizontal force exerted by AC. This particular truss employs equilateral triangles, so each of its internal angles is 60<sup>o</sup>. Either trigonometry or the Pythagorean theorem says that the tensile force along the axis of any across-the-road diagonal pair is equal to 1/Sin(60) = 2/sqrt(3) = 1.1547 times the vertical force exerted on the upper end of that member. Thus,</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtAinAB &larr; 1.1547 * upForceOnAbyAB;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtBinBC &larr; -1.1547 * upForceOnBbyBC;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtCinCD &larr; 1.1547 * upForceOnCbyCD;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtDinDE &larr; -1.1547 * upForceOnDbyDE.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;text-indent:.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Also, the horizontal force exerted by any diagonal member is equal to half the axial force or 1/Tan(60) = 1/sqrt(3) = 0.57735 times the vertical force exerted by that member. This gives us equations for the forces in the horizontal members:</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">rightForceOnAbyAC &larr; -0.57735 * upForceOnAbyAB;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">rightForceOnCbyAC &larr; - rightForceOnAbyAC;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">rightForceOnCbyCE &larr; - rightForceOnCbyAC + 0.57735 *</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp; (upForceOnCbyBC - upForceOnCbyCD);</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">rightForceOnBbyBD &larr; -0.57735 *</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp; (upForceOnBbyAB &ndash; upForceOnBbyBC);</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">rightForceOnDbyBD &larr; -rightForceOnBbyBD;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">rightForceOnDbyDF &larr; -rightForceOnDbyBD -0.57735 *</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp; (upForceOnDbyCD &ndash; upForceOnDbyDE).</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Since the horizontal forces are along the axes of the horizontal members, we have:</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtAinAC &larr; rightForceOnAbyAC;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtCinCE &larr; rightForceOnCbyCE;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtBinBD &larr; rightForceOnBbyBD;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">tensionAtDinDF &larr; rightForceOnDbyDF. </span></p>
+&nbsp;
+
+<p class="MsoNormal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><b><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">a)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Using initialized values:</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;text-indent:
+.25in;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Write a program that uses named constants for </span><span style="font-family:&quot;Courier New&quot;">centerLoad</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">, </span><span style="font-family:
+&quot;Courier New&quot;">roadWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">, and </span><span style="font-family:&quot;Courier New&quot;">structuralWeight</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">. Your program should calculate the value of </span><span style="font-family:&quot;Courier New&quot;">pierForce</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">, plus the tension in all members of the truss. This does not involve fancy mathematics. Just evaluate the expressions and make the assignments in the order in which they have been presented above, using results of previous calculations for the next one. Make your program so that what appears on your computer screen matches the following sample session. The first three lines show the named constant values, and the subsequent lines show values that your program calculates.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Sample session</span></u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Assumed center load in lbs: 20000</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Assumed weight of one section of road in lbs: 2000</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Assumed weight of structural pair in lbs: 500</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Support for half of bridge = 16750 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in BD = -17464 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in DF = -31032 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in AB = -18186 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in BC = 17320 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in CD = -14433 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span lang="FR" style="font-family:&quot;Courier New&quot;">Total tension in DE = 13279 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span lang="FR" style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in AC = 9093 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in CE = 24681 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal"><b><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">b)<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></b><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Using inputs:</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Modify the program of part A to make it accept inputs that override the initialized values. Make your program so that what appears on your computer screen matches the following sample session. As always, if a sample session contains italicized values, those values indicate user input.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Sample session</span></u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter center load in lbs: <i>20000</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter weight of one section of road in lbs: <i>2000</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter weight of structural member in lbs: <i>500</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Support for half of bridge = 16750 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in BD = -17464 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in DF = -31032 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in AB = -18186 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in BC = 17320 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in CD = -14433 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span lang="FR" style="font-family:&quot;Courier New&quot;">Total tension in DE = 13279 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span lang="FR" style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in AC = 9093 lbs.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Total tension in CE = 24681 lbs.</span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+</div>
+
+<p>&nbsp;</p>
+</div>
+
+<p>&nbsp;</p>

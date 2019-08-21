@@ -1,0 +1,144 @@
+<style type="text/css">
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;}
+--></style>
+<div class="WordSection1">
+	<h1>
+		Pig Latin</h1>
+	<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">
+		<span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">(Adapted from <i>Introduction to Programming with Java: A Problem-Solving Approach</i>, Dean and Dean, McGraw-Hill.)</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		&nbsp;</p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">Write a program that converts words to pig Latin. Words that begin with a vowel are unchanged. Words that begin with a consonant have the starting consonant moved to the end of the word and &ldquo;ay&rdquo; is appended after the consonant. If the input is only the single letter &ldquo;q&rdquo; or &ldquo;Q,&rdquo; the program quits. Given the inputs &ldquo;open,&rdquo; &ldquo;door,&rdquo; and &ldquo;q,&rdquo; make the program produce the following display:</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		&nbsp;</p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<u><span style="font-size:11.0pt">Sample session</span></u><span style="font-size:11.0pt">:</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">PIG LATIN WORD CONVERTER</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter a word: <i>open</i></span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">In Pig Latin, that&#39;s &quot;open&quot;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter a word: <i>door</i></span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">In Pig Latin, that&#39;s &quot;oorday&quot;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter a word: <i>q</i></span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">I hope you enjoyed your porcine experience! Please come again.</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">Here is the algorithm:</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">&nbsp;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">print &ldquo;Enter a word: &rdquo;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">input </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">line</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt">while </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">line</span><span style="font-size:11.0pt"> is not equal to &ldquo;q&rdquo;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp; </span><span style="font-size:11.0pt">set </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">okInput</span><span style="font-size:11.0pt"> to </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">true</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp; </span><span style="font-size:11.0pt">step through characters in input line</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">if any one is not a letter</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">set </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">okInput</span><span style="font-size:11.0pt"> to </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">false</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">print</span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;"> </span><span style="font-size:11.0pt">&ldquo;Invalid input ─ can&rsquo;t process this character&rdquo; </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">badCharacter</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp; </span><span style="font-size:11.0pt">if </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">okInput</span><span style="font-size:11.0pt"> is still </span><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">true</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">set </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">pigWord</span><span style="font-size:11.0pt"> to &ldquo;&rdquo;</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">if first character is a vowel</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">append first character to </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">pigWord</span></p>
+	<p class="MsoNormal" style="margin-left:.25in">
+		<span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">set </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">suffix</span><span style="font-size:11.0pt"> to &ldquo;&rdquo;</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">else</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">set </span><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">suffix</span><span style="font-size:11.0pt"> to </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">firstCharacter</span><span style="font-size:11.0pt"> &ldquo;ay&rdquo;</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">append remaining characters to </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">pigWord</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">append </span><span style="font-size:
+11.0pt;font-family:&quot;Courier New&quot;">suffix</span><span style="font-size:11.0pt"> to </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">pigWord</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">print &ldquo;in Pig Latin, that&rsquo;s &rdquo; </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">pigWord</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-size:11.0pt">ask for next word</span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp;&nbsp; </span><span style="font-size:11.0pt">print sign-off message </span></p>
+	<p class="MsoNormal">
+		<span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">&nbsp; </span></p>
+	<p class="MsoNormal">
+		&nbsp;</p>
+</div>
+<p>
+	&nbsp;</p>
