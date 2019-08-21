@@ -1,0 +1,86 @@
+<div>
+<h1>Vending Machine</h1>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;line-height:normal;"><span style="font-family:times new roman,serif;">(Adapted from <em>Introduction to Programming with Java: A Problem-Solving Approach</em>, Dean and Dean, McGraw-Hill.)</span></p>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;line-height:normal;">&nbsp;</p>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;"><span style="font-size:11.0pt;">Write a program that mimics the operations of a vending machine. More specifically, the program reads amounts of money that are inserted into the vending machine, asks the user to select an item, and then prints the change that&rsquo;s returned to the user.</span></p>
+
+<ul>
+	<li style="margin-top:6.0pt;margin-right:0in;margin-bottom:0in;margin-bottom:.0001pt;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Write a </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">VendingMachine</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class with only one variable, </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">paymentSum</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">. It holds the sum of money inserted for the current selection. In the interest of encapsulation, use local variables, as opposed to instance variables, whenever possible. Declare a variable locally within a method if the variable needs to persist only for the duration of a particular method call. Declare a variable as an instance variable if the variable needs to persist longer than the duration of a particular method call. For the </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">VendingMachine</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class, the sum of the inserted money is the only thing that needs to persist longer than the duration of a particular method call.</span></span></li>
+	<li style="margin-top:6.0pt;margin-right:0in;margin-bottom:0in;margin-bottom:.0001pt;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Within the </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">VendingMachine</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class, include these methods:</span></span>
+	<ul style="list-style-type:circle;">
+		<li style="margin-top:6.0pt;margin-right:0in;margin-bottom:0in;margin-bottom:.0001pt;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">insertMoney</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> &ndash; This method prompts the user to enter an amount of money that is inserted into the machine. Input validation ensures that the user enters a positive number. The entered money amount adds to the accumulated sum of inserted money.</span></span></li>
+		<li style="margin-top:6.0pt;margin-right:0in;margin-bottom:0in;margin-bottom:.0001pt;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">selectItem</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> &ndash; This method first checks to make sure that some money has been inserted into the machine. If that&rsquo;s the case, the method prompts the user to enter the selected item&rsquo;s price. Input validation ensures that the entered price is a positive number and that it is no greater than the accumulated inserted money. Finally, the method calculates and prints a list of the coins that are to be returned to the user as change.</span></span></li>
+	</ul>
+	</li>
+</ul>
+
+<p style="margin-left:.25in;"><u><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Sample session</span></span></u><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> (user input is in <em>italics</em>):</span></span></p>
+
+<pre style="margin-left: 0.25in;">
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Welcome to John&#39;s vending machine!</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>I</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Amount of money inserted: <em>5</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>s</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Selected item&#39;s price: <em>2.94</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Your change is:</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">8 quarter(s)</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">0 dime(s)</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">1 nickle(s)</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">1 penny(ies)</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>x</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Invalid selection.</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>s</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Sorry, you can&#39;t select, since you haven&#39;t inserted money yet.</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>i</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Amount of money inserted: <em>1</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>i</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Amount of money inserted: <em>0</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Invalid payment. Must enter a positive number.</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Amount of money inserted: <em>.25</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>s</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Selected item&#39;s price: <em>1.5</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Invalid selection. Price exceeds payment.</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Selected item&#39;s price: <em>0</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Invalid price. Must enter a positive number.</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Selected item&#39;s price: <em>1.13</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Your change is:</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">0 quarter(s)</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">1 dime(s)</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">0 nickle(s)</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">2 penny(ies)</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (i)nsert money, (s)elect an item, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter i, s, or q ==&gt; <em>q</em></span></span></span></pre>
+</div>
