@@ -1,4 +1,4 @@
-# CSCI 201 Resources
+# Resources
 
 ## Sample programming exercises
 
@@ -7,6 +7,7 @@
 - [Column Safety](./programmingAssignments/columnSafety)
 - [Computer Speed](./programmingAssignments/computerSpeed)
 - [Economic Policy](./programmingAssignments/economicPolicy)
+- [Hotel Charges](./programmingAssignments/hotelCharges)
 - [HVAC Load](./programmingAssignments/hvacLoad)
 - [The Game of NIM](./programmingAssignments/nim)
 - [One Hundredth Birthday](./programmingAssignments/oneHundredthBirthday)
