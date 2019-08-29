@@ -1,5 +1,7 @@
 # Resources
 
+- [Reading quiz questions](https://raw.githubusercontent.com/csci-201/csci201F19-smattingly/master/guided/readingQuizzes.md?token=AFB6NIZZGLMOGQZLZI7Q2NS5OEV4W) (Raw markdown format)
+
 ## Sample programming exercises
 
 - [Bank Balance](./programmingAssignments/bankBalance)
