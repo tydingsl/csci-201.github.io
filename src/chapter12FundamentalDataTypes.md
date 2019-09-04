@@ -10,7 +10,7 @@ In a programming environment, these different data encodings are called **data t
 
 JavaScript has a data type named `number` that implements IEEE 754 double-precision floating point numbers. Examples of literal `number` values are `5`, `75.0`, and `3.14`. 
 
-Many PLs have multiple numeric types. Often, integer (whole number) values are encoded differently from numbers with a decimal point[^*].
+Many PLs have multiple numeric types. Often, integer (whole number) values are encoded differently from numbers with a decimal point<sup>*</sup>.
 
 In addition, many PLs provide multiple integer types and/or multiple decimal-point types. The PL may allow the programmer to choose signed or unsigned types. It may also provide encodings of different lengths to allow tradeoffs between memory usage and data range. For example, a PL might provide two integer types: 16-bit and 32-bit. The 16-bit type would be preferred due to its smaller memory size, unless the programmer needs to work with values that would overflow 16 bits. The 32-bit integer is available to accommodate the larger range of values.
 
@@ -26,7 +26,7 @@ While many PLs have separate data types for a single character and a string of c
 
 Although McConnell's book tries to be largely PL neutral, he has a tendency to assume static typing. As a dynamically typed language, JavaScript does not have Boolean variables (or variables of any particular type), but it does have Boolean values: `true` and `false`.
 
-Some languages (notably C), have a way of simulating Boolean values for evaluation in Boolean contexts (`if` statements, loops, etc.). C does not recognize a Boolean type or the words "true" and "false", but it treats the value 0 (integer zero) as equivalent with "false" in a Boolean context. Any non-zero value is treated equivalent to "true".
+Some languages (notably C), have a way of simulating Boolean values for evaluation in Boolean expressions (in `if` statements, loops, etc.). C does not recognize a Boolean type or the words "true" and "false", but it treats the value 0 (integer zero) as equivalent with "false" in a Boolean expression. Any non-zero value is treated equivalent to "true". 
 
 JavaScript has a `boolean` type and recognizes the literal values `true` and `false`. However, it performs type coercion so that `0`, `-0`, `NaN` (IEEE Std. 754's "not a number"), and the special values `null`  and `undefined` are equivalent to `false` when they appear in a Boolean expression context. All other values will be coerced to `true` in such contexts. The terms "falsy" and "truthy" are sometimes used to describe these two sets of values.
 
@@ -74,4 +74,4 @@ You should know that there is one unusual thing about JavaScript arrays: they ar
 
 Feel free to skip this section. If you do skim it, you will see more hints about the advantages of extending the concept "data type" beyond just the binary encoding.
 
-[^*]: There appears to be no mathematical term for "numbers with a decimal point". To a mathematician, the integers are a proper subset of the real numbers. However, because their binary encoding is often different, programmers tend to see integers as distinct from all other reals. To put it differently, consider the question "Is 3.0 equal to 3?". A mathematician will say "yes" (I think). A programmer may very well say "no, depending on your definition of 'equal'".
+<sup>*</sup> There appears to be no mathematical term for "numbers with a decimal point". To a mathematician, the integers are a proper subset of the real numbers. However, because their binary encoding is often different, programmers tend to see integers as distinct from all other reals. To put it differently, consider the question "Is 3.0 equal to 3?". A mathematician will say "yes" (I think). A programmer may very well say "no, depending on your definition of 'equal'".
