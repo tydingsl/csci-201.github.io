@@ -1,0 +1,375 @@
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type" /><meta content="Microsoft Word 14 (filtered)" name="Generator" />
+<style type="text/css"><!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<div class="WordSection1">
+<div style="border:none;border-bottom:solid #4F81BD 1.0pt;padding:0in 0in 4.0pt 0in">
+<p class="MsoTitle">HVAC Load</p>
+</div>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">(Adapted from <i>Introduction to Programming with Java: A Problem-Solving Approach</i>, Dean and Dean, McGraw-Hill.)</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">In this project you will calculate the heating and cooling loads for a typical residence. The wintertime heating load is all of the heat that flows out of the building when the outside temperature is nearly its coldest and when there is no free heat provided by sunshine or internal lights or appliances. The coldest time is typically in the middle of January. The summertime cooling load is all of the heat that flows into the building when the outside temperature is nearly its hottest, the outside humidity is high, there are no clouds to block the sun, and the building is occupied with normal lighting and appliance usage. The hottest time is usually about 3:00 </span><span style="font-size:9.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">PM</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> in the middle of July.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Assume that four design parameters are constant: The winter indoor design temperature is 72<sup>o</sup>F, the summer indoor design temperature is 76<sup>o</sup>F, the summer indoor design humidity ratio is 0.01 lbs of water vapor per pound of dry air, and the sunshine coming in through west windows at the design time is 193 BTU/hr / ft<sup>2</sup>. (This is the &quot;west solar heat gain&quot; for 40 deg North Latitude at 3:00 </span><span style="font-size:9.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">PM</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> on July 21.) The remaining design parameters are user inputs: total roof area, building perimeter, building height, total area of windows and doors, total area of west-facing windows, roof U-value, wall U-value, window and door U-value, winter outdoor design temperature, summer outdoor design temperature, summer outdoor humidity ratio, infiltration rate in cubic feet per minute (CFM), number of people present, and electricity in use.<a href="#_ftn1" name="_ftnref1" title=""><sup><sup><span style="font-size:11.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[1]</span></sup></sup></a> Consider doors to be additional windows. The outputs of the program are total heating BTU/hr, total cooling BTU/hr, and the cooling load expressed in the nearest whole number of tons, where one ton = 12,000 BTU/hr.<a href="#_ftn2" name="_ftnref2" title=""><sup><sup><span style="font-size:11.0pt;line-height:
+115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[2]</span></sup></sup></a></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The heating-load is the sum of the following:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">roof load &larr; roof area * roof U-value * winter temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">window load &larr; total window area * window U-value * winter temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">wall load &larr; net wall area * wall U-value * winter temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">infiltration load &larr; CFM * 1.08 * winter temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">where:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">winter temperature difference &larr; </span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">&nbsp;&nbsp;&nbsp;&nbsp; winter indoor design temperature &ndash; winter outdoor design temperature</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">net wall area &larr; building perimeter * building height &ndash; window area</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">To provide a factor of safety and to accelerate morning warm up, multiply the total of all of the above heating-load components by a factor of 1.3.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">The cooling-load is the sum of the following:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">roof load &larr; roof area * roof U-value * summer temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">window load &larr; total window area * window U-value * summer temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">wall load &larr; net wall area * wall U-value * summer temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">infiltration temperature load &larr; CFM * 1.08 * summer temperature difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">solar load &larr; west solar heat gain * west window area</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">electrical load &larr; 3.416 * Watts</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">people temperature load &larr; 250 * number of people</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">infiltration humidity load &larr; CFM * 4675 * summer humidity difference</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">people humidity load &larr; 200 * number of people</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">where:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">summer temperature difference &larr;</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">&nbsp;&nbsp;&nbsp;&nbsp; summer outdoor design temperature &ndash; summer indoor design temperature</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">summer humidity difference &larr;</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-size:12px;"><span style="font-family: courier new,courier,fixed,monospace;">&nbsp;&nbsp;&nbsp;&nbsp; summer outdoor humidity ratio &ndash; summer indoor humidity ratio</span></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.75in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">To provide a factor of safety, multiply the total of all of the above cooling-load components by a factor of 1.1.</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp; </span></p>
+
+<p class="MsoNormal">Write a program that calculates summer and winter design loads. In the sample session, italicized values indicate user input.</p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Sample session</span></u><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">: </span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">HVAC Load Calculation:</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.3in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter total roof area in square ft: <i>1500</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter building perimeter in ft: <i>140</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter building height in ft: <i>18</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter total window area in square ft: <i>400</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter west window area in square ft: <i>80</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter roof U-value: <i>0.04</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter wall U-value: <i>0.10</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter window U-value: <i>0.5</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter summer outdoor temperature in deg F: <i>100</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter summer outdoor humidity ratio: <i>0.013</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter winter outdoor temperature in deg F: <i>2</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter infiltration in CFM: <i>200</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter number of people present: <i>3</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Enter electrical use in Watts: <i>1500</i></span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.3in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Heating Load = 62608.0 BTU per hour</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.3in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">Cooling Load = 45354.1 BTU per hour</span></p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;line-height:normal"><span style="font-family:&quot;Courier New&quot;">or approximately 4 tons</span></p>
+
+<p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;</span></p>
+</div>
+
+<div>
+<hr align="left" size="1" width="33%" />
+<div id="ftn1">
+<p class="MsoFootnoteText"><a href="#_ftnref1" name="_ftn1" title=""><span class="MsoFootnoteReference"><span class="MsoFootnoteReference"><span style="font-size:10.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[1]</span></span></span></a> U-value is a measure of heat flow. The lower the U-value, the more slowly the material transfers heat in and out of your home.</p>
+</div>
+
+<div id="ftn2">
+<p class="MsoFootnoteText"><a href="#_ftnref2" name="_ftn2" title=""><span class="MsoFootnoteReference"><span class="MsoFootnoteReference"><span style="font-size:10.0pt;line-height:115%;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">[2]</span></span></span></a> BTU = British Thermal Unit = amount of heat required to raise one pound of water by one degree Fahrenheit (<sup>o</sup>F).</p>
+</div>
+</div>

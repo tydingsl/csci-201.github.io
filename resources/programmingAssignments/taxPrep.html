@@ -1,0 +1,540 @@
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+<div class=WordSection1>
+
+<h1>Tax Preparation</h1>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif"'>(Adapted from <i>Introduction to
+Programming with Java: A Problem-Solving Approach</i>, Dean and Dean,
+McGraw-Hill.)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>Write a
+program that calculates customers’ income taxes using the following rules:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-family:Symbol;letter-spacing:-.15pt'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman","serif";letter-spacing:
+-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>The amount
+of taxes owed equals the taxable income times the tax rate.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-family:Symbol;letter-spacing:-.15pt'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman","serif";letter-spacing:
+-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>Taxable
+income equals gross income minus $1,000 for each exemption.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><span
+style='font-family:Symbol;letter-spacing:-.15pt'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman","serif";letter-spacing:
+-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>The taxable
+income cannot be less than zero.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>The tax
+rate is computed using the following table:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>Filing Status</u>&nbsp;&nbsp;&nbsp;&nbsp; <u>Taxable Income</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>Tax Rate</u></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+single&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+irrelevant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+20%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+married&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+irrelevant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+25%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cohabiting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; less than
+$20,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$20,000 </span><span style='font-family:"Courier New";letter-spacing:-.15pt'>&#9472;</span><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>
+$50,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+more than $50,000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>For each
+customer processed, the program should print the customer’s tax rate, taxable
+income, and taxes owed using the format shown in the sample session below.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>The program
+should allow the user to process additional customers as long as he/she enters
+‘y’ or ‘Y’ in response to a “Process another customer? (y/n): ” prompt.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>The program
+should perform input validation for the customer’s filing status (only ‘s’,
+‘S’, ‘m’, ‘M’, ‘c’, and ‘C’ are acceptable). </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><b><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>a)</span></b><b><span
+style='font-size:7.0pt;font-family:"Times New Roman","serif";letter-spacing:
+-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span style='font-family:"Times New Roman","serif";
+letter-spacing:-.15pt'>Write and debug a program for this algorithm. It should
+be able to produce the following screen display.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt;text-indent:-.25in;line-height:normal'><b><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>b)</span></b><b><span
+style='font-size:7.0pt;font-family:"Times New Roman","serif";letter-spacing:
+-.15pt'>&nbsp;&nbsp;&nbsp;&nbsp; </span></b><span style='font-family:"Times New Roman","serif";
+letter-spacing:-.15pt'>As an option, perform input validation for the other input
+entities: gross income (greater than or equal to 0.0), number of exemptions
+(greater than or equal to 0), process another query (‘y’, ‘Y’, ‘n’, and ‘N’).</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><u><span
+lang=PT-BR style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>Sample
+session</span></u><span lang=PT-BR style='font-family:"Times New Roman","serif";
+letter-spacing:-.15pt'>:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span lang=PT-BR
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span lang=PT-BR
+style='font-family:"Courier New";letter-spacing:-.15pt'>J O H N ' S&nbsp;&nbsp;
+T A X&nbsp;&nbsp; P R E P A R E R</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span lang=PT-BR
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Are you (s)ingle,
+(m)arried, or (c)ohabiting?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Enter s, m, or c ==&gt;
+<i>M</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Gross income ==&gt; <i>70000</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Number of exemptions
+==&gt; <i>2</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>INCOME TAX SUMMARY</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>tax rate: 25.0%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxable income:
+$68000.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxes owed: $17000.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Process another
+customer? (y/n):<i> Y</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Are you (s)ingle,
+(m)arried, or (c)ohabiting?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Enter s, m, or c ==&gt;
+<i>m</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Gross income ==&gt; <i>10000</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Number of exemptions
+==&gt; <i>12</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>INCOME TAX SUMMARY</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>tax rate: 25.0%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxable income: $0.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxes owed: $0.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Process another
+customer? (y/n): <i>y</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Are you (s)ingle,
+(m)arried, or (c)ohabiting?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Enter s, m, or c ==&gt;
+<i>x</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Invalid entry.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Are you (s)ingle,
+(m)arried, or (c)ohabiting?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Enter s, m, or c ==&gt;
+<i>s</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Gross income ==&gt; <i>20000</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Number of exemptions
+==&gt; <i>0</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>INCOME TAX SUMMARY</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>tax rate: 20.0%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxable income:
+$20000.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxes owed: $4000.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Process another
+customer? (y/n): <i>y</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Are you (s)ingle,
+(m)arried, or (c)ohabiting?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Enter s, m, or c ==&gt;
+<i>c</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Gross income ==&gt; <i>13000</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Number of exemptions
+==&gt; <i>4</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>INCOME TAX SUMMARY</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>tax rate: 10.0%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxable income: $9000.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxes owed: $900.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Process another
+customer? (y/n): <i>y</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Are you (s)ingle,
+(m)arried, or (c)ohabiting?</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Enter s, m, or c ==&gt;
+<i>c</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Gross income ==&gt; <i>51000</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Number of exemptions
+==&gt; <i>1</i></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>INCOME TAX SUMMARY</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>tax rate: 15.0%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxable income:
+$50000.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>taxes owed: $7500.0</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Courier New";letter-spacing:-.15pt'>Process another
+customer? (y/n): <i>n</i></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:8.0pt;font-family:"Times New Roman","serif";
+letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>This sample
+session is rather lengthy. Because of the length, it may seem like a hassle to
+mimic it precisely and then print the entire thing out. However, a good
+sample-session specification helps you check your program for many different
+special cases.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'><span
+style='font-family:"Times New Roman","serif";letter-spacing:-.15pt'>Due to inherent
+imprecision in converting the fractional portion of a decimal number (the
+portion to the right of the decimal point) to the fractional portion of a
+binary number, certain floating point numbers (such as 0.15) cannot be stored
+perfectly in the computer. Therefore, since this program does happen to use
+0.15, be prepared to see slight imprecision in your answers for calculations
+that use 0.15. For example, if you attempt to print the percentage form of
+0.15, it may display as 15.000001%. If that happens, don’t worry about it. </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt;line-height:normal'>&nbsp;</p>
+
+</div>

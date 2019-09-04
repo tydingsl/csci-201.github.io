@@ -1,0 +1,185 @@
+<div>
+<h1>Payroll</h1>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;line-height:normal;"><span style="font-family:times new roman,serif;">(Adapted from <em>Introduction to Programming with Java: A Problem-Solving Approach</em>, Dean and Dean, McGraw-Hill.)</span></p>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;">&nbsp;</p>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;"><span style="font-size:11.0pt;">Write an employee payroll program that uses polymorphism to calculate and print the weekly payroll for your company. There are three types of employees ─ hourly, salaried, and salaried plus commission. Each type of employee gets paid using a different formula. But for <u>all</u> employee types, if the calculated paycheck exceeds $1000, the actual paycheck must be decreased to $1000.</span></p>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;">&nbsp;</p>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;">Write four classes. The <span style="font-family:courier new,courier,fixed,monospace;">Employee</span> class is the base class. <span style="font-family:courier new,courier,fixed,monospace;">Hourly</span> and <span style="font-family:courier new,courier,fixed,monospace;">Salaried</span> are its subclasses. <span style="font-family:courier new,courier,fixed,monospace;">SalariedPlusCommission</span> is a subclass of <span style="font-family:courier new,courier,fixed,monospace;">Salaried</span>.</p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Employee</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class:</span></span></p>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Instance variables:</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">name</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">social security number</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">birthday month</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">birthday week.</span></span></div>
+
+<div style="margin-left: 0.75in;">&nbsp;</div>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">load</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method :</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Prompts the user for instance-variable values and loads the entries.</span></span></div>
+
+<div style="margin-left: 0.75in;">&nbsp;</div>
+
+<div style="margin-left: 0.5in;"><span style="font-size:11.0pt;">Include an abstract </span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">getEarnings</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method.</span></span></div>
+
+<div style="margin-left: 0.75in;">&nbsp;</div>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">toString</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method:</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Returns a string that shows the employee&rsquo;s name, social security number, and paycheck. </span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Here&rsquo;s an example from the sample session:</span></span></div>
+
+<div style="margin-left: 1in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">employee: Biff Sanchez</span></span></span></div>
+
+<div style="margin-left: 1in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">social security number: 111-11-1111</span></span></span></div>
+
+<div style="margin-left: 1in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">paycheck: $800.00</span></span></span></div>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Hourly</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class:</span></span></p>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Instance variables:</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">hourly pay</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">hours worked during the past week</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">load</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method:</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Prompts the user for instance-variable values and loads the entries.</span></span></div>
+
+<p style="margin-left:.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Include a </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">getEarnings</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method that calculates earnings for an hourly employee. Hourly employees are paid by the hour. If they work more than 40 hours in a week, then they receive overtime pay for their overtime work. Overtime pay equals one and a half times their normal hourly pay.</span></span></p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Salaried</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class:</span></span></p>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Instance variables:</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">weekly salary</span></span></div>
+
+<div style="margin-left: 1in;">&nbsp;</div>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">load</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method:</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Prompts the user for instance-variable values and loads the entries.</span></span></div>
+
+<p style="margin-left:.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Include a </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">getEarnings</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method that calculates earnings for a salaried employee. Salaried employees are paid their fixed weekly salary regardless of the number of hours they work.</span></span></p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">SalariedPlusCommission</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class:</span></span></p>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Instance variables:</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">sales during the past week</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">commission rate</span></span></div>
+
+<div style="margin-left: 1in; text-indent: -0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.5in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">load</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method:</span></span></div>
+
+<div style="margin-left: 0.75in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Prompts the user for instance-variable values and loads the entries.</span></span></div>
+
+<p style="margin-left:.5in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Include a </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">getEarnings</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> method that calculates earnings for a </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">SalariedPlusCommission</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> employee. </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">SalariedPlusCommission</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> employees are paid a base salary plus a percentage of their sales. &ldquo;Percentage of their sales&rdquo; equates to the product of their sales times their commission rate.</span></span></p>
+
+<p style="margin-left:.25in;">&nbsp;</p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Use initially declared named constants instead of hardcoded &ldquo;magic numbers&rdquo; embedded in the logic. </span></span></p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Use these classes in a program that behaves as illustrated below.</span></span></p>
+
+<p style="margin-left:.25in;"><u><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Sample session</span></span></u> (user input in <em>italics</em>):</p>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Number of employees: <em>3</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">PROFILE FOR EMPLOYEE #1:</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">type Hourly(1), Salaried(2), Salaried plus Commission(3)</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter 1, 2, or 3 ==&gt; <em>1</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Name ==&gt; <em>Biff Sanchez</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Social security number ==&gt; <em>111-11-1111</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Hourly pay ==&gt; <em>20</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Hours worked this past week ==&gt; <em>30</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">PROFILE FOR EMPLOYEE #2:</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">type Hourly(1), Salaried(2), Salaried plus Commission(3)</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter 1, 2, or 3 ==&gt; <em>2</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Name ==&gt; <em>Dirk Jones</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Social security number ==&gt; <em>222-22-2222</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Salary ==&gt; <em>700</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">PROFILE FOR EMPLOYEE #3:</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">type Hourly(1), Salaried(2), Salaried plus Commission(3)</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter 1, 2, or 3 ==&gt; <em>3</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Name ==&gt; <em>Suzie Que</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Social security number ==&gt; <em>333-33-3333</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Salary ==&gt; <em>400</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Sales for this past week ==&gt; <em>2000</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Sales commission rate (fraction paid to employee) ==&gt; <em>.25</em></span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">PAYCHECK REPORT:</span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">employee: Biff Sanchez</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">social security number: 111-11-1111</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">paycheck: $600.00</span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">employee: Dirk Jones</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">social security number: 222-22-2222</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">paycheck: $700.00</span></span></span></div>
+
+<div style="margin-left: 0.25in;">&nbsp;</div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">employee: Suzie Que</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">social security number: 333-33-3333</span></span></span></div>
+
+<div style="margin-left: 0.25in;"><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">paycheck: $900.00</span></span></span></div>
+</div>

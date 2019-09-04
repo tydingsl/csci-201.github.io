@@ -1,0 +1,243 @@
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type" /><meta content="Microsoft Word 14 (filtered)" name="Generator" />
+<style type="text/css"><!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	border:none;
+	padding:0in;
+	font-size:26.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	letter-spacing:.25pt;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman","serif";}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<div class="WordSection1">
+<div style="border:none;border-bottom:solid #4F81BD 1.0pt;padding:0in 0in 4.0pt 0in">
+<p class="MsoTitle">Computer Speed</p>
+</div>
+
+<p class="MsoNormal" style="margin-left:.25in">(Adapted from <i>Introduction to Programming with Java: A Problem-Solving Approach</i>, Dean and Dean, McGraw-Hill.)</p>
+
+<p class="MsoNormal" style="margin-left:.25in">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">Suppose a program has a certain number of statements, which on average execute many times in repetitions, that is, </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">statementExecutions</span><span style="font-size:11.0pt"> = (number of statements) </span><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> (average repetition count).<i> </i>A compiler translates this into object-code instructions. Since source-code statements often include more than one explicit primitive operation, and there are often many invisible primitive operations in the background, the number of object-code instructions is typically much greater than the number of source code statements. We can represent these effects with the multiplier, </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">instructionsPerStatement</span><span style="font-size:11.0pt">.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">A processor has a particular speed, </span><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">clockRate</span><span style="font-size:11.0pt">. Although some instructions may require several clock cycles to complete, a modern computer often executes more than one instruction in parallel, so a given program on a given computer has an average </span><span style="font-size:
+11.0pt;font-family:&quot;Courier New&quot;">instructionsPerCycle </span><span style="font-size:11.0pt">that may be either less than or greater than unity. The ideal total execution time is:</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">statementExecutions</span><span style="font-size:
+11.0pt"> </span><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">instructionsPerStatement</span><span style="font-size:11.0pt"> /</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt">(</span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">instructionsPerCycle</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">clockRate</span><i><span style="font-size:11.0pt"> </span></i><span style="font-size:11.0pt">).</span></p>
+
+<p class="MsoNormal"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">To this ideal time, we must add whatever time it takes to fetch information not immediately available. For each successful instruction execution, we must add time to account for the chance of not finding something that&rsquo;s needed. Not finding something in the first-level cache adds:</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt">(1 </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">-</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">firstCacheHitFraction</span><span style="font-size:11.0pt">) </span><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">firstCacheSwapTime</span><span style="font-size:11.0pt">.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">Not finding something in the second-level cache adds:</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt">(1 </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">-</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">firstCacheHitFraction</span><span style="font-size:11.0pt">) </span><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> (1 </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">-</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">secondCacheHitFraction</span><span style="font-size:11.0pt">) </span><span style="font-size:11.0pt;font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;">x</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">secondCacheSwapTime</span><span style="font-size:
+11.0pt">.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">Not finding something in the main memory adds:</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt">(1 </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">-</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">firstCacheHitFraction</span><span style="font-size:11.0pt">) </span><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> (1 </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">-</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">secondCacheHitFraction</span><span style="font-size:11.0pt">) </span><span style="font-size:11.0pt;font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> </span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt">(1 </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">-</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Courier New&quot;">mainMemoryHitFraction</span><span style="font-size:11.0pt">) </span><span style="font-size:11.0pt;font-family:&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> </span></p>
+
+<p class="MsoNormal" style="margin-left:.5in"><span style="font-size:11.0pt">[0.5 / </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">diskSpeed</span><i><span style="font-size:11.0pt"> </span></i><span style="font-size:11.0pt">+ </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">pageSize/(diskTrackLength</span><i><span style="font-size:11.0pt"> </span></i><span style="font-size:11.0pt;font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><i><span style="font-size:11.0pt"> </span></i><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">diskSpeed</span><span style="font-size:11.0pt">)].</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">Sum the three preceding values and multiply by </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">statementExecutions</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:
+&quot;Arial&quot;,&quot;sans-serif&quot;">x</span><span style="font-size:11.0pt"> </span><span style="font-size:11.0pt;font-family:&quot;Courier New&quot;">instructionsPerStatement</span> to calculate the expected increase over the ideal time.</p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">The expected execution time is the ideal time plus the expected increase.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">Write a program that estimates the total time to run a typical computer program. Make your program so that what appears on your computer screen matches the following sample session. Italicized values indicate user input.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt">Note 1: depending on your programming language, the formatting of the values in exponential notation may vary.</span></p>
+
+<p style="margin-left:.25in;"><span style="font-size:11.0pt;">Note 2: be careful with the time units. Cache swap rates are entered in microseconds, but the final calculations are displayed in seconds.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><u><span style="font-size:11.0pt;
+letter-spacing:-.15pt">Sample session</span></u><span style="font-size:11.0pt;
+letter-spacing:-.15pt">:</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in">&nbsp;</p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter executions of source-code statements: <i>10000</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter average instructions/statement: <i>20</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter clock rate in megahertz: <i>2000</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter average instructions/cycle: <i>1</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter first-level cache hit fraction: <i>.99</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter first-level cache swap time in microsec: <i>.001</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter second-level cache hit fraction: <i>.999</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter second-level cache swap time in microsec: <i>.005</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter main memory hit fraction: <i>.9999</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter main memory page size in bytes/page: <i>4096</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter disk speed in revolutions/sec: <i>500</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Enter disk track length in bytes/revolution: <i>400000</i></span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">&nbsp;</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Ideal execution time = 1.0E-4 seconds.</span></p>
+
+<p class="MsoNormal" style="margin-left:.25in"><span style="font-size:11.0pt;
+font-family:&quot;Courier New&quot;">Expected execution time = 1.0221409599999999E-4 seconds.</span></p>
+
+<p class="MsoNormal">&nbsp;</p>
+</div>

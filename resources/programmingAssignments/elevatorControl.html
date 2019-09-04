@@ -1,0 +1,65 @@
+<div>
+<h1>Elevator Control</h1>
+
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.25in;margin-bottom:.0001pt;line-height:normal;"><span style="font-family:times new roman,serif;">(Adapted from <em>Introduction to Programming with Java: A Problem-Solving Approach</em>, Dean and Dean, McGraw-Hill.)</span></p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Write a program that mimics the operations of the inside of an elevator. More specifically, the program simulates what happens when the user chooses to go to a particular floor, and it simulates what happens when the user pulls the elevator&rsquo;s fire alarm. Assume the elevator is in a high-rise building that has floors numbered 1 through 100, except that there is no floor 13.</span></span></p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Within your </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Elevator</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> class, include these methods:</span></span></p>
+
+<ul>
+	<li><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">selectFloor</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> ─ This method prompts the user for a floor selection and then performs input validation for the floor selection. If the floor selection is inappropriate (less than 1, greater than 100, equal to 13), then the method prints an error message. If the floor selection is OK, the method simulates going to that floor. See the sample session below for the format of the simulation message.</span></span></li>
+	<li><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">fireAlarm</span></span></span> <span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">─ This method prints a &ldquo;danger&rdquo; message and then simulates going to the first floor. Note that I&rsquo;m assuming this is a high tech fire alarm that is programmed to force the elevator to go to the first floor! See the sample session below for the format of the &ldquo;danger&rdquo; message</span></span></li>
+</ul>
+
+<p style="margin-left:.25in;"><span style="font-size:11.0pt;">Your program should</span><span style="font-size:11.0pt;"> use a loop that continues until the user enters &ldquo;q&rdquo; for quit. See the sample session for details.</span></p>
+
+<p style="margin-left:.25in;"><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">As you implement your solution, you should find that the </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">selectFloor</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> and </span></span><span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">fireAlarm</span></span></span><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> methods contain some repeated coding logic. To avoid unnecessary redundancies in your code, have those methods call an appropriate helper method.</span></span></p>
+
+<p style="margin-left:.25in;"><u><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;">Sample session</span></span></u><span style="letter-spacing:-.15pt;"><span style="font-size:11.0pt;"> (user input is in <em>italics</em>):</span></span></p>
+
+<pre style="margin-left: 0.25in;">
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Welcome to John&#39;s elevator simulator!</span></span></span>
+
+<span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span>
+<span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>x</em></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Invalid selection.</span></span></span>
+
+<span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>F</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Danger! You must exit the building now!</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>s</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter the floor that you&#39;d like to go to ==&gt; <em>102</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Invalid floor selection - must be between 1 and 100, excluding 13.</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>s</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter the floor that you&#39;d like to go to ==&gt; <em>15</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Going up..2..3..4..5..6..7..8..9..10..11..12..14..15..Ding!</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>s</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter the floor that you&#39;d like to go to ==&gt; <em>10</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Going down..14..12..11..10..Ding!</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>f</em></span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Danger! You must exit the building now!</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Going down..9..8..7..6..5..4..3..2..1..Ding!</span></span></span>
+
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Options: (s)elect a floor, (f)ire alarm, (q)uit</span></span></span>
+<span style="letter-spacing:-.15pt;"><span style="font-family:courier new;"><span style="font-size:11.0pt;">Enter s, f, or q ==&gt; <em>q</em></span></span></span></pre>
+</div>
