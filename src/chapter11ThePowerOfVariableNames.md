@@ -26,6 +26,8 @@ Some PLs follow a convention called **snake case**, where multi-word variable na
 
 Another major category of naming convention is called **camel case**, which is like this: `exampleOfACamelCaseVariableName`. There are other conventions, and variations, too.
 
+Finally, some PLs use special characters, called [sigils](https://en.wikipedia.org/wiki/Sigil_(computer_programming)), to indicate something about their variables. 
+
 If you travel internationally, it is one thing to know the language. It's even better to show that you understand the culture enough to take part at deeper levels. You should be aware of the convention(s) that are associated with your PL, and use one consistently and intelligently. If there is no strong convention for your PL, you can use the guidelines in this chapter to come up with your own.
 
 ## 11.5-11.7 More Naming Guidelines
