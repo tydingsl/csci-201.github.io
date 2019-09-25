@@ -61,7 +61,7 @@ A PL that does short circuit uses the shortcut indicated by the following truth 
 | True  | False                        | False   |
 | True  | True                         | True    |
 
-Look back to the code example above. A PL that does not short circuit will evaluate the expression `points_possible > 0`, which is false in our scenario. It will then evaluate the expression `points_earned / points_possible > 0`, which produces an error for division by zero.
+Look back to the code example above. A PL that does not short circuit will evaluate the expression `points_possible > 0`, which is false in our scenario. It will then evaluate the expression `points_earned / points_possible`, which produces an error for division by zero.
 
 In contrast, a PL that short circuits will evaluate the expression `points_possible > 0`, which is false in our scenario. It will not evaluate the second expression; it doesn't need to because the overall result must be false. As a result, no division by zero is attempted, and the `else` block is executed.
 
