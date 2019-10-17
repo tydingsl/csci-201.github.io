@@ -6,49 +6,12 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-  </style>
   <link rel="stylesheet" href="./default.css" type="text/css" />
 </head>
 <body>
 <h1 id="how-to-write-a-lexer">How to Write a Lexer</h1>
 <p>Previously, you learned that a lexer (also called a scanner) is a piece of software that reads a program’s source code and divides it into meaningful “chunks” called lexemes. Writing a lexer is the first step in implementing a programming language.</p>
-<p>It’s easy to become confused with so many languages flying around. To clarify, we will the PL that we are using to do the programming the <strong>implementation language</strong>. We will call the small language that we are implementing the <strong>source language</strong>. (We process its source code.)</p>
+<p>It’s easy to become confused with so many languages flying around. To clarify, we will call the PL that we are using to do the programming the <strong>implementation language</strong>. We will call the small language that we are implementing the <strong>source language</strong>. (We process its source code.)</p>
 <p>Our implementation language is JavaScript. Our source language is an imaginary toy language created for this purpose. Here is a sample program in the source language:</p>
 <pre><code>start
   a = 1
@@ -60,18 +23,8 @@ end</code></pre>
 <p>See <a href="https://smattingly.github.io/language-implementation">this web form</a> for the JavaScript lexer. You can enter some code into the form and click the button to run the lexer. Try it with the sample program provided, and also with some other inputs that you think might be valid in the language. Notice that the lexer will categorize lexemes no matter what order they are in. In other words, it is recognizing “words” but paying no attention to how they are combined into larger sets.</p>
 <p>The page should display a list of lexemes from the code that you entered, along with their associated tokens. A <strong>token</strong> is a category of lexemes; for example, each keyword and operator is its own token, all identifiers share the same token, and all numeric literals share the same token. There is also a token for unrecognized inputs that the lexer cannot identify as part of the language’s lexics.</p>
 <p>Here is the set of tokens, along with the JavaScript regular expressions that define them</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">white_space <span class="op">:</span> <span class="st">&quot;^</span><span class="sc">\\</span><span class="st">s+&quot;</span><span class="op">,</span> 
-start <span class="op">:</span> <span class="st">&quot;^start</span><span class="sc">\\</span><span class="st">b&quot;</span><span class="op">,</span> 
-end <span class="op">:</span> <span class="st">&quot;^end</span><span class="sc">\\</span><span class="st">b&quot;</span><span class="op">,</span>
-print <span class="op">:</span> <span class="st">&quot;^print</span><span class="sc">\\</span><span class="st">b&quot;</span><span class="op">,</span>
-assignment_operator <span class="op">:</span> <span class="st">&quot;^=&quot;</span><span class="op">,</span>
-open_paren <span class="op">:</span> <span class="st">&quot;^</span><span class="sc">\\</span><span class="st">(&quot;</span><span class="op">,</span>
-close_paren <span class="op">:</span> <span class="st">&quot;^</span><span class="sc">\\</span><span class="st">)&quot;</span><span class="op">,</span>
-open_comment <span class="op">:</span> <span class="st">&quot;^/</span><span class="sc">\\</span><span class="st">*&quot;</span><span class="op">,</span>
-close_comment <span class="op">:</span> <span class="st">&quot;^</span><span class="sc">\\</span><span class="st">*/&quot;</span><span class="op">,</span>
-identifier <span class="op">:</span> <span class="st">&quot;^[a-zA-Z]+[a-zA-Z0-9_]*&quot;</span><span class="op">,</span> <span class="co">// must be after reserved words</span>
-numeric <span class="op">:</span> <span class="st">&quot;^[0-9]+</span><span class="sc">\\</span><span class="st">b&quot;</span><span class="op">,</span>
-unrecognized <span class="op">:</span> <span class="st">&quot;^.+</span><span class="sc">\\</span><span class="st">W&quot;</span>                 <span class="co">// must be last</span></code></pre></div>
+<iframe src="https://github.com/smattingly/language-implementation/blob/5801d51d8ef5a2db16688a9f9905a6bcd54ef281/scripts/Lexeme.js#L40" style="outline: none; width: 100%;">
+</iframe>
 <p>The lexer works by:</p>
 <ol>
 <li>Defining a JavaScript object (shown above) to hold a set of regular expressions.</li>

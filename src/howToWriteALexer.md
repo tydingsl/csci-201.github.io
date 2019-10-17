@@ -2,7 +2,7 @@
 
 Previously, you learned that a lexer (also called a scanner) is a piece of software that reads a program's source code and divides it into meaningful "chunks" called lexemes. Writing a lexer is the first step in implementing a programming language.
 
-It's easy to become confused with so many languages flying around. To clarify, we will the PL that we are using to do the programming the **implementation language**. We will call the small language that we are implementing the **source language**. (We process its source code.)
+It's easy to become confused with so many languages flying around. To clarify, we will call the PL that we are using to do the programming the **implementation language**. We will call the small language that we are implementing the **source language**. (We process its source code.)
 
 Our implementation language is JavaScript. Our source language is an imaginary toy language created for this purpose. Here is a sample program in the source language:
 
@@ -24,20 +24,7 @@ The page should display a list of lexemes from the code that you entered, along 
 
 Here is the set of tokens, along with the JavaScript regular expressions that define them
 
-```javascript
-white_space : "^\\s+", 
-start : "^start\\b", 
-end : "^end\\b",
-print : "^print\\b",
-assignment_operator : "^=",
-open_paren : "^\\(",
-close_paren : "^\\)",
-open_comment : "^/\\*",
-close_comment : "^\\*/",
-identifier : "^[a-zA-Z]+[a-zA-Z0-9_]*", // must be after reserved words
-numeric : "^[0-9]+\\b",
-unrecognized : "^.+\\W"                 // must be last
-```
+<iframe src="https://github.com/smattingly/language-implementation/blob/5801d51d8ef5a2db16688a9f9905a6bcd54ef281/scripts/Lexeme.js#L40" style="outline: none; width: 100%;"></iframe>
 
 The lexer works by:
 
