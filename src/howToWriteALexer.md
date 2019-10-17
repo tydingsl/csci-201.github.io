@@ -22,16 +22,17 @@ See [this web form](https://smattingly.github.io/language-implementation) for th
 
 The page should display a list of lexemes from the code that you entered, along with their associated tokens. A **token** is a category of lexemes; for example, each keyword and operator is its own token, all identifiers share the same token, and all numeric literals share the same token. There is also a token for unrecognized inputs that the lexer cannot identify as part of the language's lexics.
 
-Here is the set of tokens, along with the JavaScript regular expressions that define them
+Here is the set of tokens, along with the JavaScript regular expressions that define them.
 
-<iframe src="https://github.com/smattingly/language-implementation/blob/5801d51d8ef5a2db16688a9f9905a6bcd54ef281/scripts/Lexeme.js#L40" style="outline: none; width: 100%;"></iframe>
+<script src="http://gist-it.appspot.com/http://github.com/smattingly/language-implementation/blob/5801d51d8ef5a2db16688a9f9905a6bcd54ef281/scripts/Lexeme.js?footer=no&slice=33:53"></script>
 
 The lexer works by:
 
-1. Defining a JavaScript object (shown above) to hold a set of regular expressions. 
-2. Testing the input source code against each regular expression, in the order they are defined, until a match is found.
-3. The leading portion of the input code that matched a regular expression is stripped from the front of the input code string. For later processing, it is stored in an array where each element is a lexeme object containing the matched token and the source code that was matched.
-4. This process is repeated from step 2, as long as there is more source code to process.
+1. Defining the JavaScript object shown above to hold a set of regular expressions. The property values in this object (shown in green) are [regular expression literals](https://learning.oreilly.com/library/view/javascript-the-definitive/9781449393854/ch04s01.html), with the pattern enclosed in forward slashes.
+2. Testing the input source code against each regular expression, in the order they are defined, until a match is found. (A match will always be found because the last regex matches everything.)
+3. Removing the portion of the input code that matched a regular expression from the front of the input code string. (We know the match is at the front because all the regular expressions start with [`^`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#special-caret).) 
+4. Storing that matched text for later processing, in an array where each element is a lexeme object containing the source code that was matched and the corresponding token name.
+5. Repeating this process from step 2, as long as there is more source code to process.
 
 When the end of the source code is reached, the only processing of the lexeme array is to print its contents. More sophisticated processing will take place later. The lexer has completed its task, converting an input string into a sequence of lexemes.
 
