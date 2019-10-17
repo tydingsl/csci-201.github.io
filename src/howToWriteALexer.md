@@ -24,7 +24,7 @@ The page should display a list of lexemes from the code that you entered, along 
 
 Here is the set of tokens, along with the JavaScript regular expressions that define them.
 
-<script src="http://gist-it.appspot.com/http://github.com/smattingly/language-implementation/blob/5801d51d8ef5a2db16688a9f9905a6bcd54ef281/scripts/Lexeme.js?footer=no&slice=33:53"></script>
+<script src="https://gist-it.appspot.com/https://github.com/smattingly/language-implementation/blob/5801d51d8ef5a2db16688a9f9905a6bcd54ef281/scripts/Lexeme.js?footer=no&slice=33:53"></script>
 
 The lexer works by:
 
