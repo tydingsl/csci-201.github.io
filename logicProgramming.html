@@ -6,6 +6,43 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link rel="stylesheet" href="./default.css" type="text/css" />
 </head>
 <body>
@@ -34,10 +71,27 @@
 <p>GNU Prolog and SWI Prolog are two popular and free Prolog interpreters that you can install locally. However, we will use <a href="http://swish.swi-prolog.org/">SWISH</a> for a few quick Prolog samples. This eliminates the need to install any software.</p>
 <p>On the landing page, click the options to create a <strong>Program</strong> based on an <strong>Empty</strong> profile.</p>
 <p>The SWISH Prolog screen has an input area on the left and query and output areas on the right.</p>
-<p><img src="images/family.pl.png" alt="Prolog family tree" /></p>
-<p>Enter the 7 rules and 10 facts shown. The facts represent a family tree, and the rules define certain familial relationships.</p>
-<p>The rule on line 6 has some syntax that needs explaining. The commas that separate clauses mean “and”. The last clause on line 6 means “X is not equal to Y”. So the entire rule means “Some person X is the sibling of a person Y if some person M is the mother of X and M is the mother of Y and some person F is the father of X and F is the father of Y and X is not the same person as Y”. The last clause prevents the system from saying that a person is their own sibling.</p>
-<p>Notice that more than one rule can be used in defining the same concept, as in lines 1 and 2. This amounts to “or”: two ways of satisfying the definition of parent.</p>
+<p>In the input area, enter the 7 rules and 10 facts shown below. The facts represent a family tree, and the rules define certain familial relationships.</p>
+<div class="sourceCode"><pre class="sourceCode prolog"><code class="sourceCode prolog">parent(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>) <span class="kw">:-</span> father(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">.</span>
+parent(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>) <span class="kw">:-</span> mother(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">.</span>
+grandparent(<span class="dt">X</span><span class="kw">,</span><span class="dt">Z</span>) <span class="kw">:-</span> parent(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> parent(<span class="dt">Y</span><span class="kw">,</span><span class="dt">Z</span>)<span class="kw">.</span>
+ancestor(<span class="dt">X</span><span class="kw">,</span><span class="dt">Z</span>) <span class="kw">:-</span> parent(<span class="dt">X</span><span class="kw">,</span><span class="dt">Z</span>)<span class="kw">.</span>
+ancestor(<span class="dt">X</span><span class="kw">,</span><span class="dt">Z</span>) <span class="kw">:-</span> parent(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> ancestor(<span class="dt">Y</span><span class="kw">,</span><span class="dt">Z</span>)<span class="kw">.</span>
+sibling(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>) <span class="kw">:-</span> mother(<span class="dt">M</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">,</span> mother(<span class="dt">M</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> father(<span class="dt">F</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">,</span> father(<span class="dt">F</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> <span class="dt">X</span> <span class="kw">\=</span> <span class="dt">Y</span><span class="kw">.</span>
+cousin(<span class="dt">X</span><span class="kw">,</span><span class="dt">Y</span>) <span class="kw">:-</span> parent(<span class="dt">U</span><span class="kw">,</span><span class="dt">X</span>)<span class="kw">,</span> parent(<span class="dt">V</span><span class="kw">,</span><span class="dt">Y</span>)<span class="kw">,</span> sibling(<span class="dt">U</span><span class="kw">,</span><span class="dt">V</span>)<span class="kw">.</span>
+
+father(albert<span class="kw">,</span> jeffrey)<span class="kw">.</span>
+father(albert<span class="kw">,</span> george)<span class="kw">.</span>
+father(john<span class="kw">,</span> mary)<span class="kw">.</span>
+father(george<span class="kw">,</span> cindy)<span class="kw">.</span>
+father(george<span class="kw">,</span> victor)<span class="kw">.</span>
+mother(alice<span class="kw">,</span> jeffrey)<span class="kw">.</span>
+mother(alice<span class="kw">,</span> george)<span class="kw">.</span>
+mother(sue<span class="kw">,</span> mary)<span class="kw">.</span>
+mother(mary<span class="kw">,</span> cindy)<span class="kw">.</span>
+mother(mary<span class="kw">,</span> victor)<span class="kw">.</span></code></pre></div>
+<p>The penultimate rule has some syntax that needs explaining. The commas that separate clauses mean “and”. The last clause means “X is not equal to Y”. So the entire rule means “Some person X is the sibling of a person Y if some person M is the mother of X and M is the mother of Y and some person F is the father of X and F is the father of Y and X is not the same person as Y”. The last clause prevents the system from saying that a person is their own sibling.</p>
+<p>Notice that more than one rule can be used in defining the same concept, as in the first two rules. This amounts to “or”: two ways of satisfying the definition of parent.</p>
 <p>Notice the recursive definition for <code>ancestor</code>. The base case is: a <code>parent</code> is an <code>ancestor</code>. The recursive case: the <code>ancestor</code> of your <code>parent</code> is your <code>ancestor</code>.</p>
 <p>With this knowledge base in place, we can set goals. Suppose we want to know the names of jeffrey’s siblings. Type the goal</p>
 <p>​ <code>sibling(X, jeffrey).</code></p>

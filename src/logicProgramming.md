@@ -39,13 +39,33 @@ On the landing page, click the options to create a **Program** based on an **Emp
 
 The SWISH Prolog screen has an input area on the left and query and output areas on the right. 
 
-![Prolog family tree](images/family.pl.png)
+In the input area, enter the 7 rules and 10 facts shown below. The facts represent a family tree, and the rules define certain familial relationships.
 
-Enter the 7 rules and 10 facts shown. The facts represent a family tree, and the rules define certain familial relationships.
+```prolog
+parent(X,Y) :- father(X,Y).
+parent(X,Y) :- mother(X,Y).
+grandparent(X,Z) :- parent(X,Y), parent(Y,Z).
+ancestor(X,Z) :- parent(X,Z).
+ancestor(X,Z) :- parent(X,Y), ancestor(Y,Z).
+sibling(X,Y) :- mother(M,X), mother(M,Y), father(F,X), father(F,Y), X \= Y.
+cousin(X,Y) :- parent(U,X), parent(V,Y), sibling(U,V).
 
-The rule on line 6 has some syntax that needs explaining. The commas that separate clauses mean "and". The last clause on line 6 means "X is not equal to Y". So the entire rule means "Some person X is the sibling of a person Y if some person M is the mother of X and M is the mother of Y and some person F is the father of X and F is the father of Y and X is not the same person as Y". The last clause prevents the system from saying that a person is their own sibling.
+father(albert, jeffrey).
+father(albert, george).
+father(john, mary).
+father(george, cindy).
+father(george, victor).
+mother(alice, jeffrey).
+mother(alice, george).
+mother(sue, mary).
+mother(mary, cindy).
+mother(mary, victor).
 
-Notice that more than one rule can be used in defining the same concept, as in lines 1 and 2. This amounts to "or": two ways of satisfying the definition of parent.
+```
+
+The penultimate rule has some syntax that needs explaining. The commas that separate clauses mean "and". The last clause means "X is not equal to Y". So the entire rule means "Some person X is the sibling of a person Y if some person M is the mother of X and M is the mother of Y and some person F is the father of X and F is the father of Y and X is not the same person as Y". The last clause prevents the system from saying that a person is their own sibling.
+
+Notice that more than one rule can be used in defining the same concept, as in the first two rules. This amounts to "or": two ways of satisfying the definition of parent.
 
 Notice the recursive definition for `ancestor`. The base case is: a `parent` is an `ancestor`. The recursive case: the `ancestor` of your `parent` is your `ancestor`.
 
